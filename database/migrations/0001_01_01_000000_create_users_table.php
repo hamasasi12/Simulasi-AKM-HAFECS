@@ -17,6 +17,18 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            $table->string('nama_siswa')->nullable();
+            $table->string('kelas')->nullable();
+            $table->string('asal_sekolah')->nullable();
+            $table->string('jenjang_pendidikan')->nullable();
+            $table->string('provinsi')->nullable();
+            $table->string('kabupaten')->nullable();
+            $table->string('kelurahan')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('jenis_kelamin')->nullable();
+
+            $table->uuid('token')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

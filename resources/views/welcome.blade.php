@@ -1,86 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.LandingPageLayouts')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TLC Program Navbar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-</head>
-
-<body>
-
+@section('content')
     {{-- Navbar --}}
     <header class="mb-20">
         <nav class="fixed w-full z-20 top-0 start-0 bg-gradient-to-r from-blue-700 to-blue-500 shadow-lg">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-3 px-6">
                 <!-- Logo dengan efek hover -->
                 <a href="#" class="flex items-center space-x-3 group">
-                    <div class="relative overflow-hidden rounded-md transition-all duration-300 transform group-hover:scale-105">
+                    <div
+                        class="relative overflow-hidden rounded-md transition-all duration-300 transform group-hover:scale-105">
                         <img src="images/HRP.jpg" class="h-12 transition-all duration-300" alt="HRP HAFECS Logo">
                         <div class="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                     </div>
                     <div class="flex flex-col">
-                        <span class="text-2xl font-bold text-white transition-all duration-300 group-hover:text-yellow-300">HAFECS</span>
-                        <span class="text-sm text-blue-100 transition-all duration-300 group-hover:text-white">Research & Publication</span>
+                        <span
+                            class="text-2xl font-bold text-white transition-all duration-300 group-hover:text-yellow-300">HAFECS</span>
+                        <span class="text-sm text-blue-100 transition-all duration-300 group-hover:text-white">Research &
+                            Publication</span>
                     </div>
                 </a>
-    
+
                 <!-- Hamburger Menu Button dengan animasi -->
-                <button id="menu-toggle" class="lg:hidden text-white focus:outline-none hover:bg-blue-600 p-2 rounded-lg transition-all duration-300 transform hover:scale-110">
+                <button id="menu-toggle"
+                    class="lg:hidden text-white focus:outline-none hover:bg-blue-600 p-2 rounded-lg transition-all duration-300 transform hover:scale-110">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                        </path>
                     </svg>
                 </button>
-    
+
                 <!-- Desktop Menu dengan efek hover  -->
                 <div class="hidden lg:flex lg:items-center lg:space-x-6 text-sm font-medium" id="menu">
-                    <a href="#beranda" class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
+                    <a href="#beranda"
+                        class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
                         <span class="relative z-10">Beranda</span>
-                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300"></div>
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300">
+                        </div>
                     </a>
-                    <a href="#pengertian" class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
+                    <a href="#pengertian"
+                        class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
                         <span class="relative z-10">Pengertian</span>
-                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300"></div>
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300">
+                        </div>
                     </a>
-                    <a href="#pendaftaran" class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
+                    <a href="#pendaftaran"
+                        class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
                         <span class="relative z-10">Pendaftaran</span>
-                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300"></div>
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300">
+                        </div>
                     </a>
-                    <a href="#video" class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
+                    <a href="#video"
+                        class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
                         <span class="relative z-10">Video</span>
-                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300"></div>
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300">
+                        </div>
                     </a>
-                    <a href="#galeri" class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
+                    <a href="#galeri"
+                        class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
                         <span class="relative z-10">Galeri</span>
-                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300"></div>
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300">
+                        </div>
                     </a>
-                    <a href="#faq" class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
+                    <a href="#faq"
+                        class="text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-md relative overflow-hidden group">
                         <span class="relative z-10">FAQ</span>
-                        <div class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300"></div>
+                        <div
+                            class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300">
+                        </div>
                     </a>
+                    <a href="login"
+                        class="text-white py-2 px-4 rounded-lg bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-md">
+                        Login
+                    </a>
+
                 </div>
             </div>
-    
+
             <!-- Mobile Menu dengan animasi -->
             <div id="mobile-menu"
                 class="hidden lg:hidden flex flex-col items-center space-y-3 py-4 bg-blue-800 border-t border-blue-400 text-sm font-medium">
-                <a href="#beranda" class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Beranda</a>
-                <a href="#pengertian" class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Pengertian</a>
-                <a href="#pendaftaran" class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Pendaftaran</a>
-                <a href="#video" class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Video</a>
-                <a href="#galeri" class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Galeri</a>
-                <a href="#faq" class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">FAQ</a>
-            </div>
-    
+                <a href="#beranda"
+                    class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Beranda</a>
+                <a href="#pengertian"
+                    class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Pengertian</a>
+                <a href="#pendaftaran"
+                    class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Pendaftaran</a>
+                <a href="#video"
+                    class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Video</a>
+                <a href="#galeri"
+                    class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Galeri</a>
+                <a href="#faq"
+                    class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">FAQ</a>
+                <a href="login"
+                    class="text-white py-2 px-4 rounded-lg bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-md">
+                    Login
+                </a>
+
+            </div> 
+
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
                     const menuToggle = document.getElementById('menu-toggle');
                     const mobileMenu = document.getElementById('mobile-menu');
-                    
+
                     menuToggle.addEventListener('click', function() {
                         mobileMenu.classList.toggle('hidden');
                         // Tambahkan efek animasi ketika toggle menu
@@ -91,7 +119,7 @@
                         }
                     });
                 });
-    
+
                 // Tambahkan CSS animasi untuk toggle menu
                 const style = document.createElement('style');
                 style.textContent = `
@@ -112,8 +140,7 @@
 
     {{-- Home --}}
     <main id="beranda" class="w-full px-5 py-16 bg-gray-50">
-        <div
-            class="container mx-auto max-w-7xl view grid grid-cols-12 transition-all duration-500 ease-in-out mb-14 gap-6">
+        <div class="container mx-auto max-w-7xl view grid grid-cols-12 transition-all duration-500 ease-in-out mb-14 gap-6">
             <div class="col-span-12 lg:col-span-7 p-5 transform transition-all duration-500 hover:translate-y-2">
                 <div class="animate-fadeIn">
                     <h1 class="text-6xl font-extrabold leading-tight mt-2 transition-all duration-300">
@@ -149,7 +176,7 @@
                         Pelajari Lebih Lanjut
                     </a>
                 </div>
-                
+
                 <div class="flex flex-wrap items-center gap-6 mt-12">
                     <div class="w-48 h-auto transform transition-all duration-500 hover:scale-110">
                         <img src="images/logo.png" alt="HAFECS Logo" class="w-full h-auto" />
@@ -160,12 +187,12 @@
                 </div>
             </div>
             <div class="col-span-12 lg:col-span-5 relative flex items-center justify-center">
-                
+
                 <div
                     class="absolute top-0 right-0 w-full h-full border-4 border-dashed border-amber-400 rounded-full animate-spin-slow">
                 </div>
-    
-                
+
+
                 <div
                     class="absolute top-4 right-4 transform transition-all duration-500 hover:scale-125 hover:-translate-y-2 z-10">
                     <div
@@ -180,8 +207,8 @@
                         Bermain
                     </div>
                 </div>
-    
-                
+
+
                 <div
                     class="w-64 h-64 bg-white rounded-full flex items-center justify-center shadow-xl transform hover:rotate-12 transition-all duration-500 z-0 overflow-hidden">
                     <img src="images/5.jpg" alt="Literasi dan Numerasi"
@@ -189,51 +216,51 @@
                 </div>
             </div>
         </div>
-    
+
         <style>
             @keyframes fadeIn {
                 from {
                     opacity: 0;
                     transform: translateY(20px);
                 }
-    
+
                 to {
                     opacity: 1;
                     transform: translateY(0);
                 }
             }
-    
+
             @keyframes float {
                 0% {
                     transform: translateY(0px);
                 }
-    
+
                 50% {
                     transform: translateY(-20px);
                 }
-    
+
                 100% {
                     transform: translateY(0px);
                 }
             }
-    
+
             .animate-fadeIn {
                 animation: fadeIn 1s ease-out;
             }
-    
+
             .animate-float {
                 animation: float 6s ease-in-out infinite;
             }
-    
+
             .animate-spin-slow {
                 animation: spin 15s linear infinite;
             }
-    
+
             @keyframes spin {
                 from {
                     transform: rotate(0deg);
                 }
-    
+
                 to {
                     transform: rotate(360deg);
                 }
@@ -377,163 +404,238 @@
 
     {{-- Pengertian Literasi Dan Numenisasi --}}
     <section id="pengertian" class="w-full px-5 py-16 bg-gray-50 relative overflow-hidden">
-        
+
         <div class="absolute top-8 left-5 w-6 h-6 bg-blue-300 rounded-full opacity-70 animate-pulse"></div>
-        <div class="absolute top-0 right-1/4 w-24 h-24 bg-blue-200 rounded-full opacity-50 animate-bounce" style="animation-duration: 6s;"></div>
-        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-100 rounded-full opacity-40 animate-pulse" style="animation-duration: 7s;"></div>
-        <div class="absolute bottom-1/3 left-1/4 w-16 h-16 bg-blue-100 rounded-full opacity-30 animate-pulse" style="animation-duration: 8s;"></div>
-        
-        
+        <div class="absolute top-0 right-1/4 w-24 h-24 bg-blue-200 rounded-full opacity-50 animate-bounce"
+            style="animation-duration: 6s;"></div>
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-100 rounded-full opacity-40 animate-pulse"
+            style="animation-duration: 7s;"></div>
+        <div class="absolute bottom-1/3 left-1/4 w-16 h-16 bg-blue-100 rounded-full opacity-30 animate-pulse"
+            style="animation-duration: 8s;"></div>
+
+
         <div class="max-w-5xl mx-auto text-center relative z-10">
-            <div class="inline-block px-4 py-1 rounded-full bg-blue-200 text-blue-800 mb-4 text-sm font-medium transform transition-transform hover:scale-105 hover:shadow-md cursor-pointer">
+            <div
+                class="inline-block px-4 py-1 rounded-full bg-blue-200 text-blue-800 mb-4 text-sm font-medium transform transition-transform hover:scale-105 hover:shadow-md cursor-pointer">
                 Konsep Dasar
             </div>
             <h2 class="text-4xl sm:text-5xl font-bold mb-2 tracking-tight">
                 Pengertian <span class="text-blue-600 relative">
                     Literasi
-                    <span class="absolute bottom-0 left-0 w-full h-1 bg-blue-400 transform origin-left scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-blue-400 transform origin-left scale-x-0 transition-transform group-hover:scale-x-100"></span>
                 </span> dan <span class="text-yellow-500 relative">
                     Numerasi
-                    <span class="absolute bottom-0 left-0 w-full h-1 bg-yellow-400 transform origin-left scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-yellow-400 transform origin-left scale-x-0 transition-transform group-hover:scale-x-100"></span>
                 </span>
             </h2>
-            
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-yellow-500 mt-3 mb-6 mx-auto transform transition-all duration-300 hover:w-32 hover:h-2"></div>
-            
+
+            <div
+                class="w-16 h-1 bg-gradient-to-r from-blue-500 to-yellow-500 mt-3 mb-6 mx-auto transform transition-all duration-300 hover:w-32 hover:h-2">
+            </div>
+
             <p class="text-gray-700 max-w-3xl mx-auto text-lg mb-16">
-                Memahami konsep dasar yang menjadi fondasi pendidikan anak-anak kita untuk 
+                Memahami konsep dasar yang menjadi fondasi pendidikan anak-anak kita untuk
                 masa depan yang lebih cerah
             </p>
         </div>
-    
-        
+
+
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-            
-            <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 group relative overflow-hidden">
-                
-                <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-500 rounded-lg blur opacity-0 group-hover:opacity-10 transition duration-700"></div>
-                
-                <div class="relative">  
+
+            <div
+                class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 group relative overflow-hidden">
+
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+
+
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-500 rounded-lg blur opacity-0 group-hover:opacity-10 transition duration-700">
+                </div>
+
+                <div class="relative">
                     <div class="flex items-center mb-6">
-                        <div class="bg-blue-100 p-3 rounded-xl shadow-md transform transition-transform group-hover:rotate-6 group-hover:scale-110 group-hover:bg-blue-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        <div
+                            class="bg-blue-100 p-3 rounded-xl shadow-md transform transition-transform group-hover:rotate-6 group-hover:scale-110 group-hover:bg-blue-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold ml-4 transition-all duration-300 group-hover:text-blue-600">Literasi</h3>
+                        <h3 class="text-2xl font-bold ml-4 transition-all duration-300 group-hover:text-blue-600">Literasi
+                        </h3>
                     </div>
-                    
+
                     <p class="text-gray-700 mb-6 transition-all duration-300 group-hover:text-gray-800">
-                        Literasi adalah kemampuan untuk membaca, menulis, berbicara, dan 
-                        memahami bahasa. Ini mencakup kemampuan untuk mengidentifikasi, 
-                        memahami, menafsirkan, menciptakan, berkomunikasi, dan menghitung 
+                        Literasi adalah kemampuan untuk membaca, menulis, berbicara, dan
+                        memahami bahasa. Ini mencakup kemampuan untuk mengidentifikasi,
+                        memahami, menafsirkan, menciptakan, berkomunikasi, dan menghitung
                         menggunakan bahan cetak dan tertulis.
                     </p>
-                    
+
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                            <div class="bg-blue-100 p-2 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                            <div
+                                class="bg-blue-100 p-2 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                 </svg>
                             </div>
-                            <span class="ml-3 text-sm font-medium group-hover:text-blue-700 transition-colors duration-300">Pemahaman Bacaan</span>
+                            <span
+                                class="ml-3 text-sm font-medium group-hover:text-blue-700 transition-colors duration-300">Pemahaman
+                                Bacaan</span>
                         </div>
-                        <div class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                            <div class="bg-blue-100 p-2 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                            <div
+                                class="bg-blue-100 p-2 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                 </svg>
                             </div>
-                            <span class="ml-3 text-sm font-medium group-hover:text-blue-700 transition-colors duration-300">Ekspresi Tertulis</span>
+                            <span
+                                class="ml-3 text-sm font-medium group-hover:text-blue-700 transition-colors duration-300">Ekspresi
+                                Tertulis</span>
                         </div>
-                        <div class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                            <div class="bg-blue-100 p-2 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                            <div
+                                class="bg-blue-100 p-2 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                                 </svg>
                             </div>
-                            <span class="ml-3 text-sm font-medium group-hover:text-blue-700 transition-colors duration-300">Komunikasi Lisan</span>
+                            <span
+                                class="ml-3 text-sm font-medium group-hover:text-blue-700 transition-colors duration-300">Komunikasi
+                                Lisan</span>
                         </div>
-                        <div class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                            <div class="bg-blue-100 p-2 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-blue-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                            <div
+                                class="bg-blue-100 p-2 rounded-full group-hover:bg-blue-200 transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                 </svg>
                             </div>
-                            <span class="ml-3 text-sm font-medium group-hover:text-blue-700 transition-colors duration-300">Berpikir Kritis</span>
+                            <span
+                                class="ml-3 text-sm font-medium group-hover:text-blue-700 transition-colors duration-300">Berpikir
+                                Kritis</span>
                         </div>
                     </div>
                 </div>
             </div>
-    
-            
-            <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 group relative overflow-hidden">
-                
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-50 to-yellow-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                
-                <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-lg blur opacity-0 group-hover:opacity-10 transition duration-700"></div>
-                
-                <div class="relative">  
+
+
+            <div
+                class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-2 group relative overflow-hidden">
+
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-yellow-50 to-yellow-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+
+
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-lg blur opacity-0 group-hover:opacity-10 transition duration-700">
+                </div>
+
+                <div class="relative">
                     <div class="flex items-center mb-6">
-                        <div class="bg-yellow-100 p-3 rounded-xl shadow-md transform transition-transform group-hover:rotate-6 group-hover:scale-110 group-hover:bg-yellow-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        <div
+                            class="bg-yellow-100 p-3 rounded-xl shadow-md transform transition-transform group-hover:rotate-6 group-hover:scale-110 group-hover:bg-yellow-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold ml-4 transition-all duration-300 group-hover:text-yellow-600">Numerasi</h3>
+                        <h3 class="text-2xl font-bold ml-4 transition-all duration-300 group-hover:text-yellow-600">
+                            Numerasi</h3>
                     </div>
-                    
+
                     <p class="text-gray-700 mb-6 transition-all duration-300 group-hover:text-gray-800">
-                        Numerasi adalah kemampuan untuk memahami dan menggunakan 
-                        angka dan konsep matematika dalam kehidupan sehari-hari. Ini 
-                        mencakup kemampuan untuk memecahkan masalah, berpikir secara 
+                        Numerasi adalah kemampuan untuk memahami dan menggunakan
+                        angka dan konsep matematika dalam kehidupan sehari-hari. Ini
+                        mencakup kemampuan untuk memecahkan masalah, berpikir secara
                         logis, dan mengaplikasikan konsep matematika.
                     </p>
-                    
+
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-yellow-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                            <div class="bg-yellow-100 p-2 rounded-full group-hover:bg-yellow-200 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-yellow-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                            <div
+                                class="bg-yellow-100 p-2 rounded-full group-hover:bg-yellow-200 transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                 </svg>
                             </div>
-                            <span class="ml-3 text-sm font-medium group-hover:text-yellow-700 transition-colors duration-300">Berhitung Dasar</span>
+                            <span
+                                class="ml-3 text-sm font-medium group-hover:text-yellow-700 transition-colors duration-300">Berhitung
+                                Dasar</span>
                         </div>
-                        <div class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-yellow-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                            <div class="bg-yellow-100 p-2 rounded-full group-hover:bg-yellow-200 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-yellow-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                            <div
+                                class="bg-yellow-100 p-2 rounded-full group-hover:bg-yellow-200 transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <span class="ml-3 text-sm font-medium group-hover:text-yellow-700 transition-colors duration-300">Pemecahan Masalah</span>
+                            <span
+                                class="ml-3 text-sm font-medium group-hover:text-yellow-700 transition-colors duration-300">Pemecahan
+                                Masalah</span>
                         </div>
-                        <div class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-yellow-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                            <div class="bg-yellow-100 p-2 rounded-full group-hover:bg-yellow-200 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-yellow-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                            <div
+                                class="bg-yellow-100 p-2 rounded-full group-hover:bg-yellow-200 transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
-                            <span class="ml-3 text-sm font-medium group-hover:text-yellow-700 transition-colors duration-300">Penalaran Logis</span>
+                            <span
+                                class="ml-3 text-sm font-medium group-hover:text-yellow-700 transition-colors duration-300">Penalaran
+                                Logis</span>
                         </div>
-                        <div class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-yellow-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                            <div class="bg-yellow-100 p-2 rounded-full group-hover:bg-yellow-200 transition-colors duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-xl hover:bg-yellow-50 hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                            <div
+                                class="bg-yellow-100 p-2 rounded-full group-hover:bg-yellow-200 transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                 </svg>
                             </div>
-                            <span class="ml-3 text-sm font-medium group-hover:text-yellow-700 transition-colors duration-300">Aplikasi Matematika</span>
+                            <span
+                                class="ml-3 text-sm font-medium group-hover:text-yellow-700 transition-colors duration-300">Aplikasi
+                                Matematika</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
+
         <!-- Tambahkan script untuk animasi tambahan saat sentuh di perangkat mobile -->
         <script>
             // Deteksi sentuhan untuk perangkat mobile
@@ -547,7 +649,7 @@
                     }, 300);
                 });
             });
-    
+
             // Animasi untuk ikon-ikon saat disentuh
             document.querySelectorAll('.rounded-xl').forEach(item => {
                 item.addEventListener('touchstart', function() {
@@ -777,58 +879,85 @@
     {{-- Mengapa Literasi dan Numerasi Penting? --}}
     <section class="w-full px-5 py-16 bg-gray-50">
         <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-amber-500 mb-2 animate-pulse">Mengapa Literasi dan Numerasi Penting?</h2>
+            <h2
+                class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-amber-500 mb-2 animate-pulse">
+                Mengapa Literasi dan Numerasi Penting?</h2>
             <div class="w-40 h-1 bg-gradient-to-r from-blue-600 to-amber-500 mx-auto rounded-full"></div>
         </div>
-    
+
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mt-10">
             <!-- Fondasi Pendidikan -->
-            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-3xl shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:rotate-1 hover:-translate-y-2 cursor-pointer group relative overflow-hidden">
-                <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+            <div
+                class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-3xl shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:rotate-1 hover:-translate-y-2 cursor-pointer group relative overflow-hidden">
+                <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+                </div>
                 <div class="mb-5 relative z-10">
-                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-4 rounded-xl shadow-lg w-16 h-16 flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-active:scale-95">
-                        <svg class="w-8 h-8 text-white transition-transform duration-500 group-hover:animate-pulse" fill="none" stroke="currentColor" stroke-width="2.5"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"></path>
+                    <div
+                        class="bg-gradient-to-r from-blue-600 to-blue-700 p-4 rounded-xl shadow-lg w-16 h-16 flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-active:scale-95">
+                        <svg class="w-8 h-8 text-white transition-transform duration-500 group-hover:animate-pulse"
+                            fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z">
+                            </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mt-6 transition-all duration-300 group-hover:text-blue-700 group-hover:translate-x-2">Fondasi Pendidikan</h3>
+                    <h3
+                        class="text-2xl font-bold text-gray-800 mt-6 transition-all duration-300 group-hover:text-blue-700 group-hover:translate-x-2">
+                        Fondasi Pendidikan</h3>
                 </div>
                 <p class="text-gray-700 text-lg transition-all duration-300 group-hover:text-blue-900">
                     Menjadi dasar untuk semua pembelajaran di masa depan dan kesuksesan akademis.
                 </p>
                 <div class="w-0 h-1 bg-blue-600 mt-4 transition-all duration-500 group-hover:w-full rounded-full"></div>
             </div>
-    
+
             <!-- Keterampilan Hidup -->
-            <div class="bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-3xl shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:rotate-1 hover:-translate-y-2 cursor-pointer group relative overflow-hidden">
-                <div class="absolute inset-0 bg-amber-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+            <div
+                class="bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-3xl shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:rotate-1 hover:-translate-y-2 cursor-pointer group relative overflow-hidden">
+                <div
+                    class="absolute inset-0 bg-amber-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+                </div>
                 <div class="mb-5 relative z-10">
-                    <div class="bg-gradient-to-r from-amber-500 to-amber-600 p-4 rounded-xl shadow-lg w-16 h-16 flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-active:scale-95">
-                        <svg class="w-8 h-8 text-white transition-transform duration-500 group-hover:animate-pulse" fill="none" stroke="currentColor" stroke-width="2.5"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"></path>
+                    <div
+                        class="bg-gradient-to-r from-amber-500 to-amber-600 p-4 rounded-xl shadow-lg w-16 h-16 flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-active:scale-95">
+                        <svg class="w-8 h-8 text-white transition-transform duration-500 group-hover:animate-pulse"
+                            fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z">
+                            </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mt-6 transition-all duration-300 group-hover:text-amber-600 group-hover:translate-x-2">Keterampilan Hidup</h3>
+                    <h3
+                        class="text-2xl font-bold text-gray-800 mt-6 transition-all duration-300 group-hover:text-amber-600 group-hover:translate-x-2">
+                        Keterampilan Hidup</h3>
                 </div>
                 <p class="text-gray-700 text-lg transition-all duration-300 group-hover:text-amber-900">
                     Membantu anak-anak mengatasi tantangan sehari-hari dan membuat keputusan yang tepat.
                 </p>
                 <div class="w-0 h-1 bg-amber-500 mt-4 transition-all duration-500 group-hover:w-full rounded-full"></div>
             </div>
-    
+
             <!-- Masa Depan Cerah -->
-            <div class="bg-gradient-to-br from-blue-100 to-blue-200 p-8 rounded-3xl shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:rotate-1 hover:-translate-y-2 cursor-pointer group relative overflow-hidden">
-                <div class="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+            <div
+                class="bg-gradient-to-br from-blue-100 to-blue-200 p-8 rounded-3xl shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:rotate-1 hover:-translate-y-2 cursor-pointer group relative overflow-hidden">
+                <div class="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
+                </div>
                 <div class="mb-5 relative z-10">
-                    <div class="bg-gradient-to-r from-blue-700 to-blue-800 p-4 rounded-xl shadow-lg w-16 h-16 flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-active:scale-95">
-                        <svg class="w-8 h-8 text-white transition-transform duration-500 group-hover:animate-pulse" fill="none" stroke="currentColor" stroke-width="2.5"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"></path>
+                    <div
+                        class="bg-gradient-to-r from-blue-700 to-blue-800 p-4 rounded-xl shadow-lg w-16 h-16 flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-active:scale-95">
+                        <svg class="w-8 h-8 text-white transition-transform duration-500 group-hover:animate-pulse"
+                            fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z">
+                            </path>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mt-6 transition-all duration-300 group-hover:text-blue-800 group-hover:translate-x-2">Masa Depan Cerah</h3>
+                    <h3
+                        class="text-2xl font-bold text-gray-800 mt-6 transition-all duration-300 group-hover:text-blue-800 group-hover:translate-x-2">
+                        Masa Depan Cerah</h3>
                 </div>
                 <p class="text-gray-700 text-lg transition-all duration-300 group-hover:text-blue-900">
                     Mempersiapkan anak-anak untuk karir dan kesuksesan di era digital.
@@ -836,7 +965,7 @@
                 <div class="w-0 h-1 bg-blue-700 mt-4 transition-all duration-500 group-hover:w-full rounded-full"></div>
             </div>
         </div>
-    
+
         <script>
             // Add touch interaction for mobile devices
             document.querySelectorAll('.group').forEach(card => {
@@ -852,64 +981,90 @@
     {{-- End Mengapa Literasi dan Numerasi Penting? --}}
 
     {{-- Alur Pendaftaran --}}
-    <section id="pendaftaran"   class="w-full max-w-6xl mx-auto px-5 py-16">
+    <section id="pendaftaran" class="w-full max-w-6xl mx-auto px-5 py-16">
         <div class="text-center mb-16 transform transition-all duration-700 hover:scale-105">
             <div class="flex justify-center mb-6">
-                <div class="h-16 w-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-500 hover:rotate-12">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                <div
+                    class="h-16 w-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-500 hover:rotate-12">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                 </div>
             </div>
-            <h1 class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 mb-4">Alur Pendaftaran Program</h1>
+            <h1 class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 mb-4">
+                Alur Pendaftaran Program</h1>
             <p class="text-gray-600 mt-3 text-lg">Ikuti langkah-langkah sederhana berikut untuk mendaftarkan anak Anda</p>
         </div>
 
         <div class="relative">
             <!-- Timeline Line -->
-            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-400 via-blue-600 to-blue-800 rounded-full"></div>
+            <div
+                class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-400 via-blue-600 to-blue-800 rounded-full">
+            </div>
 
             <!-- Step 1 -->
             <div class="flex flex-col md:flex-row mb-20 relative group">
                 <div class="md:w-1/2 md:pr-8">
-                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-l-4 border-blue-600">
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-l-4 border-blue-600">
                         <div class="flex items-center">
-                            <div class="mr-4 bg-blue-100 p-3 rounded-lg transform group-hover:rotate-12 transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            <div
+                                class="mr-4 bg-blue-100 p-3 rounded-lg transform group-hover:rotate-12 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold text-blue-600 flex items-center group-hover:text-blue-800 transition-colors duration-300">
+                                <h3
+                                    class="text-xl font-semibold text-blue-600 flex items-center group-hover:text-blue-800 transition-colors duration-300">
                                     Isi Formulir Pendaftaran
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 text-blue-600 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5 ml-2 text-blue-600 group-hover:translate-x-1 transition-transform duration-300"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
                                     </svg>
                                 </h3>
-                                <p class="text-gray-500 mt-2 group-hover:text-gray-700 transition-colors duration-300">Lengkapi formulir pendaftaran online dengan data anak dan orang tua/wali.</p>
+                                <p class="text-gray-500 mt-2 group-hover:text-gray-700 transition-colors duration-300">
+                                    Lengkapi formulir pendaftaran online dengan data anak dan orang tua/wali.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="hidden md:flex absolute left-1/2 top-6 transform -translate-x-1/2 items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">1</div>
+                <div
+                    class="hidden md:flex absolute left-1/2 top-6 transform -translate-x-1/2 items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    1</div>
                 <div class="md:w-1/2"></div>
             </div>
 
             <!-- Step 2 -->
             <div class="flex flex-col md:flex-row mb-20 relative group">
                 <div class="md:w-1/2"></div>
-                <div class="hidden md:flex absolute left-1/2 top-6 transform -translate-x-1/2 items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">2</div>
+                <div
+                    class="hidden md:flex absolute left-1/2 top-6 transform -translate-x-1/2 items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    2</div>
                 <div class="md:w-1/2 md:pl-8">
-                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-r-4 border-blue-600">
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-r-4 border-blue-600">
                         <div class="flex items-center">
-                            <div class="mr-4 bg-blue-100 p-3 rounded-lg transform group-hover:rotate-12 transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            <div
+                                class="mr-4 bg-blue-100 p-3 rounded-lg transform group-hover:rotate-12 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold text-blue-600 group-hover:text-blue-800 transition-colors duration-300">Pilih Jadwal Tes</h3>
-                                <p class="text-gray-500 mt-2 group-hover:text-gray-700 transition-colors duration-300">Pilih jadwal tes kemampuan awal yang sesuai dengan ketersediaan waktu anak.</p>
+                                <h3
+                                    class="text-xl font-semibold text-blue-600 group-hover:text-blue-800 transition-colors duration-300">
+                                    Pilih Jadwal Tes</h3>
+                                <p class="text-gray-500 mt-2 group-hover:text-gray-700 transition-colors duration-300">
+                                    Pilih jadwal tes kemampuan awal yang sesuai dengan ketersediaan waktu anak.</p>
                             </div>
                         </div>
                     </div>
@@ -919,44 +1074,64 @@
             <!-- Step 3 -->
             <div class="flex flex-col md:flex-row mb-20 relative group">
                 <div class="md:w-1/2 md:pr-8">
-                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-l-4 border-blue-600">
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-l-4 border-blue-600">
                         <div class="flex items-center">
-                            <div class="mr-4 bg-blue-100 p-3 rounded-lg transform group-hover:rotate-12 transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            <div
+                                class="mr-4 bg-blue-100 p-3 rounded-lg transform group-hover:rotate-12 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold text-blue-600 flex items-center group-hover:text-blue-800 transition-colors duration-300">
+                                <h3
+                                    class="text-xl font-semibold text-blue-600 flex items-center group-hover:text-blue-800 transition-colors duration-300">
                                     Ikuti Tes Kemampuan
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 text-blue-600 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5 ml-2 text-blue-600 group-hover:translate-x-1 transition-transform duration-300"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
                                     </svg>
                                 </h3>
-                                <p class="text-gray-500 mt-2 group-hover:text-gray-700 transition-colors duration-300">Anak mengikuti tes kemampuan awal untuk menentukan level pembelajaran yang sesuai.</p>
+                                <p class="text-gray-500 mt-2 group-hover:text-gray-700 transition-colors duration-300">Anak
+                                    mengikuti tes kemampuan awal untuk menentukan level pembelajaran yang sesuai.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="hidden md:flex absolute left-1/2 top-6 transform -translate-x-1/2 items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">3</div>
+                <div
+                    class="hidden md:flex absolute left-1/2 top-6 transform -translate-x-1/2 items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    3</div>
                 <div class="md:w-1/2"></div>
             </div>
 
             <!-- Step 4 -->
             <div class="flex flex-col md:flex-row mb-20 relative group">
                 <div class="md:w-1/2"></div>
-                <div class="hidden md:flex absolute left-1/2 top-6 transform -translate-x-1/2 items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">4</div>
+                <div
+                    class="hidden md:flex absolute left-1/2 top-6 transform -translate-x-1/2 items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-bold z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    4</div>
                 <div class="md:w-1/2 md:pl-8">
-                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-r-4 border-blue-600">
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border-r-4 border-blue-600">
                         <div class="flex items-center">
-                            <div class="mr-4 bg-blue-100 p-3 rounded-lg transform group-hover:rotate-12 transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            <div
+                                class="mr-4 bg-blue-100 p-3 rounded-lg transform group-hover:rotate-12 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold text-blue-600 group-hover:text-blue-800 transition-colors duration-300">Mulai Program Pembelajaran</h3>
-                                <p class="text-gray-500 mt-2 group-hover:text-gray-700 transition-colors duration-300">Anak memulai program pembelajaran sesuai dengan jadwal yang telah ditentukan.</p>
+                                <h3
+                                    class="text-xl font-semibold text-blue-600 group-hover:text-blue-800 transition-colors duration-300">
+                                    Mulai Program Pembelajaran</h3>
+                                <p class="text-gray-500 mt-2 group-hover:text-gray-700 transition-colors duration-300">Anak
+                                    memulai program pembelajaran sesuai dengan jadwal yang telah ditentukan.</p>
                             </div>
                         </div>
                     </div>
@@ -965,9 +1140,12 @@
         </div>
 
         <div class="flex justify-center mt-16">
-            <button class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center group">
+            <button
+                class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center group">
                 Coba Sekarang
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
             </button>
@@ -1119,69 +1297,92 @@
     <section id="galeri" class="relative max-w-7xl mx-auto px-4 py-12 overflow-hidden bg-">
         <!-- Header Section -->
         <div class="text-center mb-12 transform transition-all duration-500 hover:scale-105">
-            <span class="inline-block bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+            <span
+                class="inline-block bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                 Dokumentasi Kegiatan
             </span>
-            <h2 class="text-4xl font-bold bg-gradient-to-r from-blue-700 to-yellow-500 bg-clip-text text-transparent mt-3 relative group">
+            <h2
+                class="text-4xl font-bold bg-gradient-to-r from-blue-700 to-yellow-500 bg-clip-text text-transparent mt-3 relative group">
                 Galeri Kegiatan
-                <span class="absolute -bottom-2 left-1/2 w-0 h-1 bg-gradient-to-r from-blue-600 to-yellow-500 group-hover:w-48 transition-all duration-300 transform -translate-x-1/2"></span>
+                <span
+                    class="absolute -bottom-2 left-1/2 w-0 h-1 bg-gradient-to-r from-blue-600 to-yellow-500 group-hover:w-48 transition-all duration-300 transform -translate-x-1/2"></span>
             </h2>
             <p class="text-blue-800 mt-6 max-w-2xl mx-auto transition-all duration-300 hover:text-blue-900">
                 Lihat dokumentasi kegiatan literasi dan numerasi yang telah kami lakukan
             </p>
         </div>
-    
+
         <!-- Gallery Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Gallery Item 1 -->
-            <div class="group relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl bg-white">
-                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div class="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            <div
+                class="group relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl bg-white">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div
+                        class="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                         <h3 class="font-bold">Kegiatan Literasi</h3>
-                        <p class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Siswa membaca bersama di perpustakaan</p>
+                        <p class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Siswa membaca bersama di perpustakaan</p>
                     </div>
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="images/1.jpg" alt="Kegiatan 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="images/1.jpg" alt="Kegiatan 1"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
             </div>
-    
+
             <!-- Gallery Item 2 -->
-            <div class="group relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl bg-white">
-                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div class="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            <div
+                class="group relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl bg-white">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div
+                        class="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                         <h3 class="font-bold">Kegiatan Numerasi</h3>
-                        <p class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Belajar matematika dengan alat peraga</p>
+                        <p class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Belajar matematika dengan alat peraga</p>
                     </div>
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="images/2.jpg" alt="Kegiatan 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="images/2.jpg" alt="Kegiatan 2"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
             </div>
-    
+
             <!-- Gallery Item 3 -->
-            <div class="group relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl bg-white">
-                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div class="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            <div
+                class="group relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl bg-white">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div
+                        class="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                         <h3 class="font-bold">Diskusi Kelompok</h3>
-                        <p class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Siswa berdiskusi dalam kelompok kecil</p>
+                        <p class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Siswa berdiskusi dalam kelompok kecil</p>
                     </div>
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="images/3.jpg" alt="Kegiatan 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="images/3.jpg" alt="Kegiatan 3"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
             </div>
-    
+
             <!-- Gallery Item 4 -->
-            <div class="group relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl bg-white">
-                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div class="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            <div
+                class="group relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl bg-white">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div
+                        class="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                         <h3 class="font-bold">Presentasi Proyek</h3>
-                        <p class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">Siswa mempresentasikan hasil proyek</p>
+                        <p class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            Siswa mempresentasikan hasil proyek</p>
                     </div>
                 </div>
                 <div class="aspect-square overflow-hidden">
-                    <img src="images/4.jpg" alt="Kegiatan 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <img src="images/4.jpg" alt="Kegiatan 4"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
             </div>
         </div>
@@ -1190,126 +1391,180 @@
 
     {{-- Vidio --}}
     <section id="video" class="max-w-7xl mx-auto px-4 md:px-8 py-20 bg- overflow-hidden">
-        
+
         <div class="absolute -top-20 -left-20 w-64 h-64 bg-blue-300 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-        <div class="absolute top-1/2 -right-32 w-80 h-80 bg-indigo-300 rounded-full opacity-20 blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
-        <div class="absolute -bottom-40 left-1/3 w-72 h-72 bg-purple-300 rounded-full opacity-20 blur-3xl animate-pulse" style="animation-delay: 4s;"></div>
-        
-        
-        <div class="max-w-4xl mx-auto text-center mb-16 relative z-10 transform transition-all duration-700 hover:scale-102">
-            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 bg-clip-text text-transparent leading-tight mb-6 relative">
+        <div class="absolute top-1/2 -right-32 w-80 h-80 bg-indigo-300 rounded-full opacity-20 blur-3xl animate-pulse"
+            style="animation-delay: 2s;"></div>
+        <div class="absolute -bottom-40 left-1/3 w-72 h-72 bg-purple-300 rounded-full opacity-20 blur-3xl animate-pulse"
+            style="animation-delay: 4s;"></div>
+
+
+        <div
+            class="max-w-4xl mx-auto text-center mb-16 relative z-10 transform transition-all duration-700 hover:scale-102">
+            <h2
+                class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 bg-clip-text text-transparent leading-tight mb-6 relative">
                 Video Hafecs
-                <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-full"></span>
+                <span
+                    class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-full"></span>
             </h2>
             <p class="text-lg md:text-xl text-gray-700 font-medium max-w-2xl mx-auto mt-6">
                 Tonton video-video menarik tentang program literasi dan numerasi kami
             </p>
         </div>
-    
-        
+
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
-            
+
             <!-- Video 1 -->
-            <div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-amber-500">
+            <div
+                class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-amber-500">
                 <div class="relative h-56 md:h-64 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end justify-center pb-6">
-                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full flex items-center space-x-1 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end justify-center pb-6">
+                        <button
+                            class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full flex items-center space-x-1 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                    clip-rule="evenodd" />
                             </svg>
                             <span>Putar Video</span>
                         </button>
                     </div>
-                    <iframe class="w-full h-full group-hover:scale-110 transition-transform duration-700" src="https://www.youtube.com/embed/Jn7vuXLozJI" 
-                        frameborder="0" allowfullscreen></iframe>
+                    <iframe class="w-full h-full group-hover:scale-110 transition-transform duration-700"
+                        src="https://www.youtube.com/embed/Jn7vuXLozJI" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="p-6 bg-gradient-to-br from-white to-blue-50">
-                    <h3 class="text-xl font-bold text-blue-800 mb-3 group-hover:text-amber-600 transition-colors duration-300">Belajar Numerasi yang Menyenangkan</h3>
+                    <h3
+                        class="text-xl font-bold text-blue-800 mb-3 group-hover:text-amber-600 transition-colors duration-300">
+                        Belajar Numerasi yang Menyenangkan</h3>
                     <p class="text-gray-600 mb-4">Metode belajar berhitung yang menyenangkan untuk anak-anak.</p>
                     <div class="flex justify-between items-center">
-                        <a href="https://www.youtube.com/watch?v=Jn7vuXLozJI" target="_blank" class="text-amber-600 hover:text-amber-500 font-medium flex items-center transition-colors duration-300 group relative">
+                        <a href="https://www.youtube.com/watch?v=Jn7vuXLozJI" target="_blank"
+                            class="text-amber-600 hover:text-amber-500 font-medium flex items-center transition-colors duration-300 group relative">
                             <span class="relative z-10">Tonton Sekarang</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
                             </svg>
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 group-hover:w-full transition-all duration-300"></span>
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 group-hover:w-full transition-all duration-300"></span>
                         </a>
                     </div>
                 </div>
             </div>
 
             <!-- Video 2 -->
-            <div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-amber-500">
+            <div
+                class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-amber-500">
                 <div class="relative h-56 md:h-64 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end justify-center pb-6">
-                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full flex items-center space-x-1 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end justify-center pb-6">
+                        <button
+                            class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full flex items-center space-x-1 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                    clip-rule="evenodd" />
                             </svg>
                             <span>Putar Video</span>
                         </button>
                     </div>
-                    <iframe class="w-full h-full group-hover:scale-110 transition-transform duration-700" src="https://www.youtube.com/embed/Jn7vuXLozJI" 
-                        frameborder="0" allowfullscreen></iframe>
+                    <iframe class="w-full h-full group-hover:scale-110 transition-transform duration-700"
+                        src="https://www.youtube.com/embed/Jn7vuXLozJI" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="p-6 bg-gradient-to-br from-white to-blue-50">
-                    <h3 class="text-xl font-bold text-blue-800 mb-3 group-hover:text-amber-600 transition-colors duration-300">Belajar Numerasi yang Menyenangkan</h3>
+                    <h3
+                        class="text-xl font-bold text-blue-800 mb-3 group-hover:text-amber-600 transition-colors duration-300">
+                        Belajar Numerasi yang Menyenangkan</h3>
                     <p class="text-gray-600 mb-4">Metode belajar berhitung yang menyenangkan untuk anak-anak.</p>
                     <div class="flex justify-between items-center">
-                        <a href="https://www.youtube.com/watch?v=Jn7vuXLozJI" target="_blank" class="text-amber-600 hover:text-amber-500 font-medium flex items-center transition-colors duration-300 group relative">
+                        <a href="https://www.youtube.com/watch?v=Jn7vuXLozJI" target="_blank"
+                            class="text-amber-600 hover:text-amber-500 font-medium flex items-center transition-colors duration-300 group relative">
                             <span class="relative z-10">Tonton Sekarang</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
                             </svg>
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 group-hover:w-full transition-all duration-300"></span>
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 group-hover:w-full transition-all duration-300"></span>
                         </a>
                     </div>
                 </div>
             </div>
 
             <!-- Video 3 -->
-            <div class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-amber-500">
+            <div
+                class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-t-4 border-amber-500">
                 <div class="relative h-56 md:h-64 overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end justify-center pb-6">
-                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full flex items-center space-x-1 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end justify-center pb-6">
+                        <button
+                            class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full flex items-center space-x-1 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                                    clip-rule="evenodd" />
                             </svg>
                             <span>Putar Video</span>
                         </button>
                     </div>
-                    <iframe class="w-full h-full group-hover:scale-110 transition-transform duration-700" src="https://www.youtube.com/embed/Jn7vuXLozJI" 
-                        frameborder="0" allowfullscreen></iframe>
+                    <iframe class="w-full h-full group-hover:scale-110 transition-transform duration-700"
+                        src="https://www.youtube.com/embed/Jn7vuXLozJI" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="p-6 bg-gradient-to-br from-white to-blue-50">
-                    <h3 class="text-xl font-bold text-blue-800 mb-3 group-hover:text-amber-600 transition-colors duration-300">Belajar Numerasi yang Menyenangkan</h3>
+                    <h3
+                        class="text-xl font-bold text-blue-800 mb-3 group-hover:text-amber-600 transition-colors duration-300">
+                        Belajar Numerasi yang Menyenangkan</h3>
                     <p class="text-gray-600 mb-4">Metode belajar berhitung yang menyenangkan untuk anak-anak.</p>
                     <div class="flex justify-between items-center">
-                        <a href="https://www.youtube.com/watch?v=Jn7vuXLozJI" target="_blank" class="text-amber-600 hover:text-amber-500 font-medium flex items-center transition-colors duration-300 group relative">
+                        <a href="https://www.youtube.com/watch?v=Jn7vuXLozJI" target="_blank"
+                            class="text-amber-600 hover:text-amber-500 font-medium flex items-center transition-colors duration-300 group relative">
                             <span class="relative z-10">Tonton Sekarang</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
                             </svg>
-                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 group-hover:w-full transition-all duration-300"></span>
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 group-hover:w-full transition-all duration-300"></span>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-    
-        
+
+
         <div class="text-center">
-            <a href="#" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
+            <a href="#"
+                class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
                 <span>Lihat Semua Video</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20"
+                    fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
                 </svg>
             </a>
         </div>
-    
-        
-        <div class="hidden md:block absolute top-20 right-10 w-12 h-12 bg-yellow-300 rounded-full opacity-40 animate-bounce" style="animation-duration: 6s; animation-delay: 1s;"></div>
-        <div class="hidden md:block absolute bottom-20 left-10 w-8 h-8 bg-pink-300 rounded-full opacity-30 animate-bounce" style="animation-duration: 8s;"></div>
+
+
+        <div class="hidden md:block absolute top-20 right-10 w-12 h-12 bg-yellow-300 rounded-full opacity-40 animate-bounce"
+            style="animation-duration: 6s; animation-delay: 1s;"></div>
+        <div class="hidden md:block absolute bottom-20 left-10 w-8 h-8 bg-pink-300 rounded-full opacity-30 animate-bounce"
+            style="animation-duration: 8s;"></div>
     </section>
     {{-- End Vidio --}}
 
@@ -1317,12 +1572,16 @@
     <section id="coba" class="w-full px-5 py-16 bg-gray-50 relative overflow-hidden">
         <!-- Animated background elements -->
         <div class="absolute top-8 left-5 w-6 h-6 bg-blue-300 rounded-full opacity-70 animate-pulse"></div>
-        <div class="absolute top-0 right-1/4 w-24 h-24 bg-blue-200 rounded-full opacity-50 animate-bounce" style="animation-duration: 6s;"></div>
-        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-100 rounded-full opacity-40 animate-pulse" style="animation-duration: 7s;"></div>
-        <div class="absolute bottom-1/3 left-1/4 w-16 h-16 bg-blue-100 rounded-full opacity-30 animate-pulse" style="animation-duration: 8s;"></div>
-        
+        <div class="absolute top-0 right-1/4 w-24 h-24 bg-blue-200 rounded-full opacity-50 animate-bounce"
+            style="animation-duration: 6s;"></div>
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-yellow-100 rounded-full opacity-40 animate-pulse"
+            style="animation-duration: 7s;"></div>
+        <div class="absolute bottom-1/3 left-1/4 w-16 h-16 bg-blue-100 rounded-full opacity-30 animate-pulse"
+            style="animation-duration: 8s;"></div>
+
         <div class="max-w-lg mx-auto text-center relative z-10 mb-8">
-            <div class="inline-block px-4 py-1 rounded-full bg-blue-500 text-white mb-4 text-sm font-medium transform transition-transform hover:scale-105 hover:shadow-lg cursor-pointer">
+            <div
+                class="inline-block px-4 py-1 rounded-full bg-blue-500 text-white mb-4 text-sm font-medium transform transition-transform hover:scale-105 hover:shadow-lg cursor-pointer">
                 Bergabunglah Sekarang
             </div>
             <h2 class="text-4xl font-bold mb-2 tracking-tight text-blue-600">
@@ -1331,164 +1590,336 @@
             <p class="text-gray-700 text-md mb-6">
                 Isi formulir di bawah ini untuk mencoba program Literasi dan Numerasi
             </p>
-            
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-yellow-500 mt-1 mb-6 mx-auto transform transition-all duration-300 hover:w-32 hover:h-2"></div>
+
+            <div
+                class="w-16 h-1 bg-gradient-to-r from-blue-500 to-yellow-500 mt-1 mb-6 mx-auto transform transition-all duration-300 hover:w-32 hover:h-2">
+            </div>
         </div>
-    
-        <div class="max-w-lg mx-auto bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 mb-8 transform hover:-translate-y-1 border border-blue-50">
-            <h3 class="text-2xl font-bold text-blue-600 mb-6 text-center">Isi Dulu Formulir Kamu</h3>
-            
-            <!-- Nama Lengkap -->
-            <div class="mb-4 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
-                <div class="flex items-center">
-                    <div class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                    </div>
-                    <div class="flex flex-col flex-1 relative">
-                        <label class="text-sm text-blue-700 mb-1 font-medium">Nama Lengkap</label>
-                        <input type="text" placeholder="Masukkan nama lengkap" class="border-b-2 border-blue-200 bg-transparent focus:outline-none focus:border-blue-500 text-gray-600 p-1 transition-colors duration-300">
-                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Kelas -->
-            <div class="mb-4 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
-                <div class="flex items-center">
-                    <div class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                        </svg>
-                    </div>
-                    <div class="flex flex-col flex-1 relative">
-                        <label class="text-sm text-blue-700 mb-1 font-medium">Kelas</label>
-                        <input type="text" placeholder="Contoh: 5A" class="border-b-2 border-blue-200 bg-transparent focus:outline-none focus:border-blue-500 text-gray-600 p-1 transition-colors duration-300">
-                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Asal Sekolah -->
-            <div class="mb-4 p-4 bg-yellow-50 rounded-2xl hover:bg-yellow-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
-                <div class="flex items-center">
-                    <div class="bg-yellow-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-yellow-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                    </div>
-                    <div class="flex flex-col flex-1 relative">
-                        <label class="text-sm text-yellow-700 mb-1 font-medium">Asal Sekolah</label>
-                        <input type="text" placeholder="Nama sekolah" class="border-b-2 border-yellow-200 bg-transparent focus:outline-none focus:border-yellow-500 text-gray-600 p-1 transition-colors duration-300">
-                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Kabupaten/Kota -->
-            <div class="mb-4 p-4 bg-yellow-50 rounded-2xl hover:bg-yellow-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
-                <div class="flex items-center">
-                    <div class="bg-yellow-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-yellow-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                    </div>
-                    <div class="flex flex-col flex-1 relative">
-                        <label class="text-sm text-yellow-700 mb-1 font-medium">Kabupaten/Kota</label>
-                        <input type="text" placeholder="Kabupaten atau kota" class="border-b-2 border-yellow-200 bg-transparent focus:outline-none focus:border-yellow-500 text-gray-600 p-1 transition-colors duration-300">
-                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Provinsi -->
-            <div class="mb-4 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group cursor-pointer">
-                <div class="flex items-center">
-                    <div class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <div class="flex flex-col flex-1 relative">
-                        <label class="text-sm text-blue-700 mb-1 font-medium">Provinsi</label>
-                        <div class="flex items-center justify-between">
-                            <span class="text-gray-600">Pilih provinsi</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 transform transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+
+        <form action="{{ route('students.store') }}" method="POST">
+            @csrf
+            <div
+                class="max-w-lg mx-auto bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 mb-8 transform hover:-translate-y-1 border border-blue-50">
+                <h3 class="text-2xl font-bold text-blue-600 mb-6 text-center">Isi Dulu Formulir Kamu</h3>
+                <!-- Nama Lengkap -->
+                <div
+                    class="mb-4 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                         </div>
-                        <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Jenis Kelamin -->
-            <div class="mb-6 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
-                <div class="flex items-center">
-                    <div class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                    </div>
-                    <div class="flex flex-col flex-1">
-                        <label class="text-sm text-blue-700 mb-2 font-medium">Jenis Kelamin</label>
-                        <div class="flex items-center space-x-6">
-                            <div class="flex items-center group/radio cursor-pointer">
-                                <div class="relative w-5 h-5 mr-2">
-                                    <input type="radio" name="gender" id="male" class="absolute opacity-0 w-0 h-0">
-                                    <div class="w-5 h-5 border-2 border-blue-300 rounded-full flex items-center justify-center group-hover/radio:border-blue-500 transition-colors duration-300">
-                                        <div class="w-3 h-3 rounded-full bg-blue-500 opacity-0 transform scale-0 transition-all duration-300" id="male-dot"></div>
-                                    </div>
-                                </div>
-                                <label for="male" class="text-gray-600 group-hover/radio:text-blue-600 transition-colors duration-300">Laki-laki</label>
-                            </div>
-                            <div class="flex items-center group/radio cursor-pointer">
-                                <div class="relative w-5 h-5 mr-2">
-                                    <input type="radio" name="gender" id="female" class="absolute opacity-0 w-0 h-0">
-                                    <div class="w-5 h-5 border-2 border-blue-300 rounded-full flex items-center justify-center group-hover/radio:border-blue-500 transition-colors duration-300">
-                                        <div class="w-3 h-3 rounded-full bg-blue-500 opacity-0 transform scale-0 transition-all duration-300" id="female-dot"></div>
-                                    </div>
-                                </div>
-                                <label for="female" class="text-gray-600 group-hover/radio:text-blue-600 transition-colors duration-300">Perempuan</label>
+                        <div class="flex flex-col flex-1 relative">
+                            <label class="text-sm text-blue-700 mb-1 font-medium">Nama Lengkap</label>
+                            <input type="text" placeholder="Masukkan nama lengkap" name="nama_siswa"
+                                class="border-b-2 border-blue-200 bg-transparent focus:outline-none focus:border-blue-500 text-gray-600 p-1 transition-colors duration-300">
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full">
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Kelas -->
+                <div
+                    class="mb-4 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col flex-1 relative">
+                            <label class="text-sm text-blue-700 mb-1 font-medium">Kelas</label>
+                            <input type="text" placeholder="Contoh: 5A" name="kelas"
+                                class="border-b-2 border-blue-200 bg-transparent focus:outline-none focus:border-blue-500 text-gray-600 p-1 transition-colors duration-300">
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asal Sekolah -->
+                <div
+                    class="mb-4 p-4 bg-yellow-50 rounded-2xl hover:bg-yellow-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-yellow-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-yellow-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col flex-1 relative">
+                            <label class="text-sm text-yellow-700 mb-1 font-medium">Asal Sekolah</label>
+                            <input type="text" placeholder="Nama sekolah" name="asal_sekolah"
+                                class="border-b-2 border-yellow-200 bg-transparent focus:outline-none focus:border-yellow-500 text-gray-600 p-1 transition-colors duration-300">
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Jenjang Pendidikan --}}
+                <div
+                    class="mb-4 p-4 bg-yellow-50 rounded-2xl hover:bg-yellow-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-yellow-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-yellow-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col flex-1 relative">
+                            <label class="text-sm text-yellow-700 mb-1 font-medium">Jenjang Pendidikan</label>
+                            <select name="jenjang_pendidikan"
+                                class="border-b-2 border-yellow-200 bg-transparent focus:outline-none focus:border-yellow-500 text-gray-600 p-1 transition-colors duration-300 appearance-none cursor-pointer">
+                                <option value="" disabled selected>Pilih Jenjang Pendidikan</option>
+                                <option value="SD">SD</option>
+                                <option value="SMP">SMP</option>
+                                <option value="SMA">SMA</option>
+                            </select>
+                            <div class="absolute right-2 bottom-3 pointer-events-none text-yellow-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Provinsi --}}
+                <div
+                    class="mb-4 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group cursor-pointer">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col flex-1 relative">
+                            <label class="text-sm text-blue-700 mb-1 font-medium">Provinsi</label>
+                            <select id="province" name="provinsi"
+                                class="border-b-2 border-blue-200 bg-transparent focus:outline-none focus:border-blue-500 text-gray-600 p-1 transition-colors duration-300 appearance-none cursor-pointer">
+                                <option value="{{ old('provinsi') }}" selected>
+                                    {{ old('provinsi') ? old('provinsi') : 'Select Province' }}</option>
+                                @foreach ($provinces as $province)
+                                    <option value="{{ $province->name }}">{{ $province->name }}</option>
+                                @endforeach
+                            </select>
+                            <div class="absolute right-2 bottom-3 pointer-events-none text-blue-500">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-blue-500 transform transition-transform group-hover:rotate-180"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- REGENCY/KABUPATEN --}}
+                <div
+                    class="mb-4 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group cursor-pointer">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col flex-1 relative">
+                            <label class="text-sm text-blue-700 mb-1 font-medium">Kabupaten</label>
+                            <select id="regency" name="kabupaten" disabled
+                                class="border-b-2 border-blue-200 bg-transparent focus:outline-none focus:border-blue-500 text-gray-600 p-1 transition-colors duration-300 appearance-none cursor-pointer">
+                                <option value="" selected disabled>Select Regency/City</option>
+                            </select>
+                            <div class="absolute right-2 bottom-3 pointer-events-none text-blue-500">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-blue-500 transform transition-transform group-hover:rotate-180"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- DISTRICT/KECAMATAN --}}
+                <div
+                    class="mb-4 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group cursor-pointer">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col flex-1 relative">
+                            <label class="text-sm text-blue-700 mb-1 font-medium">Kecamatan</label>
+                            <select id="district" name="kecamatan" disabled
+                                class="border-b-2 border-blue-200 bg-transparent focus:outline-none focus:border-blue-500 text-gray-600 p-1 transition-colors duration-300 appearance-none cursor-pointer">
+                                <option value="" selected disabled>Select District</option>
+                            </select>
+                            <div class="absolute right-2 bottom-3 pointer-events-none text-blue-500">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-blue-500 transform transition-transform group-hover:rotate-180"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Village/kelurahan --}}
+                <div
+                    class="mb-4 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group cursor-pointer">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col flex-1 relative">
+                            <label class="text-sm text-blue-700 mb-1 font-medium">Kelurahan</label>
+                            <select id="village" name="kelurahan" disabled
+                                class="border-b-2 border-blue-200 bg-transparent focus:outline-none focus:border-blue-500 text-gray-600 p-1 transition-colors duration-300 appearance-none cursor-pointer">
+                                <option value="" selected disabled>Select District</option>
+                            </select>
+                            <div class="absolute right-2 bottom-3 pointer-events-none text-blue-500">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-5 w-5 text-blue-500 transform transition-transform group-hover:rotate-180"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jenis Kelamin -->
+                <div
+                    class="mb-6 p-4 bg-blue-50 rounded-2xl hover:bg-blue-100 transition-all duration-300 transform hover:scale-102 hover:shadow-md group">
+                    <div class="flex items-center">
+                        <div
+                            class="bg-blue-500 text-white p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors duration-300 transform group-hover:rotate-6 group-hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col flex-1">
+                            <label class="text-sm text-blue-700 mb-2 font-medium">Jenis Kelamin</label>
+                            <div class="flex items-center space-x-6">
+                                <!-- Laki-laki option -->
+                                <label class="flex items-center cursor-pointer group/radio">
+                                    <div class="relative flex items-center">
+                                        <input type="radio" name="jenis_kelamin" value="L"
+                                            class="appearance-none w-5 h-5 border-2 border-blue-300 rounded-full checked:border-blue-500 checked:border-4 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300">
+                                    </div>
+                                    <span
+                                        class="ml-2 text-gray-600 group-hover/radio:text-blue-600 transition-colors duration-300">Laki-laki</span>
+                                </label>
+
+                                <!-- Perempuan option -->
+                                <label class="flex items-center cursor-pointer group/radio">
+                                    <div class="relative flex items-center">
+                                        <input type="radio" name="jenis_kelamin" value="P"
+                                            class="appearance-none w-5 h-5 border-2 border-blue-300 rounded-full checked:border-blue-500 checked:border-4 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-300">
+                                    </div>
+                                    <span
+                                        class="ml-2 text-gray-600 group-hover/radio:text-blue-600 transition-colors duration-300">Perempuan</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <button
+                    class="w-full bg-gradient-to-r from-blue-500 to-yellow-500 text-white py-3 rounded-full text-lg font-medium flex items-center justify-center transform transition-all duration-300 hover:shadow-xl hover:translate-y-1 active:translate-y-0 relative overflow-hidden group"
+                    type="submit">
+                    <span
+                        class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5 mr-2 transition-transform duration-300 group-hover:rotate-12" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="relative z-10">Kirim Pendaftaran</span>
+                </button>
             </div>
-            
-            <!-- Submit Button -->
-            <button class="w-full bg-gradient-to-r from-blue-500 to-yellow-500 text-white py-3 rounded-full text-lg font-medium flex items-center justify-center transform transition-all duration-300 hover:shadow-xl hover:translate-y-1 active:translate-y-0 relative overflow-hidden group">
-                <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 transition-transform duration-300 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span class="relative z-10">Kirim Pendaftaran</span>
-            </button>
-        </div>
-        
+        </form>
+
+
         <!-- JavaScript for animations -->
+
+
         <script>
             // Radio button animations
             document.getElementById('male').addEventListener('change', function() {
-                if(this.checked) {
+                if (this.checked) {
                     document.getElementById('male-dot').style.opacity = '1';
                     document.getElementById('male-dot').style.transform = 'scale(1)';
                     document.getElementById('female-dot').style.opacity = '0';
                     document.getElementById('female-dot').style.transform = 'scale(0)';
                 }
             });
-            
+
             document.getElementById('female').addEventListener('change', function() {
-                if(this.checked) {
+                if (this.checked) {
                     document.getElementById('female-dot').style.opacity = '1';
                     document.getElementById('female-dot').style.transform = 'scale(1)';
                     document.getElementById('male-dot').style.opacity = '0';
                     document.getElementById('male-dot').style.transform = 'scale(0)';
                 }
             });
-            
+
             // Mobile touch animations
             document.querySelectorAll('.group').forEach(element => {
                 element.addEventListener('touchstart', function() {
@@ -1498,7 +1929,7 @@
                     }, 200);
                 });
             });
-            
+
             // Button touch animation
             const submitButton = document.querySelector('button');
             submitButton.addEventListener('touchstart', function() {
@@ -1508,6 +1939,76 @@
                 }, 200);
             });
         </script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#province').change(function() {
+                    var provinceName = $(this).val();
+
+                    $('#regency').prop('disabled', !provinceName);
+                    $('#district').prop('disabled', true);
+                    $('#village').prop('disabled', true);
+                    $('#regency').empty().append('<option value="">Pilih Kabupaten/Kota</option>');
+                    $('#district').empty().append('<option value="">Pilih Kecamatan</option>');
+                    $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+
+                    if (provinceName) {
+                        $.get('/regencies/' + provinceName, function(data) {
+                            $.each(data, function(key, value) {
+                                $('#regency').append('<option value="' + value.name + '">' +
+                                    value.name + '</option>');
+                            });
+                        }).fail(function() {
+                            console.error(
+                                'Error fetching regencies');
+                        });
+                    }
+                });
+
+                $('#regency').change(function() {
+                    var regencyName = $(this).val();
+
+                    $('#district').prop('disabled', !regencyName);
+                    $('#village').prop('disabled', true);
+                    $('#district').empty().append('<option value="">Pilih Kecamatan</option>');
+                    $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+
+                    if (regencyName) {
+                        $.get('/districts/' + regencyName, function(data) {
+                            $.each(data, function(key, value) {
+                                $('#district').append('<option value="' + value.name + '">' +
+                                    value.name + '</option>');
+                            });
+                        }).fail(function() {
+                            console.error(
+                                'Error fetching districts'); // Ganti alert dengan console.error
+                        });
+                    }
+                });
+
+                $('#district').change(function() {
+                    var districtName = $(this).val();
+
+                    $('#village').prop('disabled', !districtName);
+                    $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+
+                    if (districtName) {
+                        $.get('/villages/' + districtName, function(data) {
+                            $.each(data, function(key, value) {
+                                $('#village').append('<option value="' + value.name + '">' +
+                                    value.name + '</option>');
+                            });
+                        }).fail(function() {
+                            console.error(
+                                'Error fetching villages'); // Ganti alert dengan console.error
+                        });
+                    }
+                });
+            });
+        </script>
+
     </section>
     {{-- <section class="w-full min-h-screen px-5 py-16 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden">
         <!-- Background Elements -->
@@ -2459,119 +2960,176 @@
     <footer class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-10 relative">
         <!-- Accent color bar at top -->
         <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-500"></div>
-        
+
         <!-- Background pattern -->
         <div class="absolute inset-0 opacity-5">
-            <div class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNmMtMy4zMTQgMC02IDIuNjg2LTYgNnMyLjY4NiA2IDYgNnptMCAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIuNSIvPjxwYXRoIGQ9Ik0yNCAzNmMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNmMtMy4zMTQgMC02IDIuNjg2LTYgNnMyLjY4NiA2IDYgNnptMCAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIuNSIvPjwvZz48L3N2Zz4=')]"></div>
+            <div
+                class="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNmMtMy4zMTQgMC02IDIuNjg2LTYgNnMyLjY4NiA2IDYgNnptMCAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIuNSIvPjxwYXRoIGQ9Ik0yNCAzNmMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNmMtMy4zMTQgMC02IDIuNjg2LTYgNnMyLjY4NiA2IDYgNnptMCAwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1vcGFjaXR5PSIuNSIvPjwvZz48L3N2Zz4=')]">
+            </div>
         </div>
-        
+
         <div class="container max-w-6xl mx-auto px-6 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Brand - Column 1 -->
                 <div class="space-y-3 transform transition-all duration-300 hover:scale-105">
                     <div class="flex flex-col items-start mb-4">
-                        <h2 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 mb-1" style="text-shadow: 1px 1px 2px rgba(255,255,255,0.2);">
-                            <span class="text-white">H</span><span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-500">A</span><span class="text-white">FECS</span>
+                        <h2 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 mb-1"
+                            style="text-shadow: 1px 1px 2px rgba(255,255,255,0.2);">
+                            <span class="text-white">H</span><span
+                                class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-500">A</span><span
+                                class="text-white">FECS</span>
                         </h2>
                         <p class="text-yellow-400 italic text-sm">Nurturing Mind, Enriching Knowledge</p>
                     </div>
                     <p class="text-gray-200 leading-relaxed mb-4 text-sm">
-                        Membangun fondasi kuat untuk masa depan anak-anak Indonesia melalui kemampuan literasi dan numerasi yang menyenangkan.
+                        Membangun fondasi kuat untuk masa depan anak-anak Indonesia melalui kemampuan literasi dan numerasi
+                        yang menyenangkan.
                     </p>
                     <div class="flex space-x-3 mt-3">
-                        <a href="#" class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-yellow-400 hover:to-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:rotate-6 shadow-lg hover:shadow-xl">
+                        <a href="#"
+                            class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-yellow-400 hover:to-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:rotate-6 shadow-lg hover:shadow-xl">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-yellow-400 hover:to-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:rotate-6 shadow-lg hover:shadow-xl">
+                        <a href="#"
+                            class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-yellow-400 hover:to-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:rotate-6 shadow-lg hover:shadow-xl">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-yellow-400 hover:to-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:rotate-6 shadow-lg hover:shadow-xl">
+                        <a href="#"
+                            class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-yellow-400 hover:to-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:rotate-6 shadow-lg hover:shadow-xl">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-yellow-400 hover:to-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:rotate-6 shadow-lg hover:shadow-xl">
+                        <a href="#"
+                            class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-yellow-400 hover:to-orange-500 rounded-lg flex items-center justify-center transition-all duration-300 hover:rotate-6 shadow-lg hover:shadow-xl">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
                 </div>
-    
+
                 <!-- Program - Column 2 -->
                 <div class="md:flex md:justify-center">
                     <div class="space-y-3">
-                        <h2 class="text-xl font-bold mb-5 border-b-2 border-yellow-400 pb-2 inline-block transform transition-all duration-300 hover:scale-105">Program</h2>
+                        <h2
+                            class="text-xl font-bold mb-5 border-b-2 border-yellow-400 pb-2 inline-block transform transition-all duration-300 hover:scale-105">
+                            Program</h2>
                         <ul class="space-y-3 text-sm">
                             <li class="group">
-                                <a href="#" class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
-                                    <div class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                                    <span class="transform group-hover:translate-x-2 transition-transform duration-300">Literasi Dasar</span>
+                                <a href="#"
+                                    class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
+                                    <div
+                                        class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300">
+                                    </div>
+                                    <span
+                                        class="transform group-hover:translate-x-2 transition-transform duration-300">Literasi
+                                        Dasar</span>
                                 </a>
                             </li>
                             <li class="group">
-                                <a href="#" class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
-                                    <div class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                                    <span class="transform group-hover:translate-x-2 transition-transform duration-300">Numerasi Dasar</span>
+                                <a href="#"
+                                    class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
+                                    <div
+                                        class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300">
+                                    </div>
+                                    <span
+                                        class="transform group-hover:translate-x-2 transition-transform duration-300">Numerasi
+                                        Dasar</span>
                                 </a>
                             </li>
                             <li class="group">
-                                <a href="#" class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
-                                    <div class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                                    <span class="transform group-hover:translate-x-2 transition-transform duration-300">Program Intensif</span>
+                                <a href="#"
+                                    class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
+                                    <div
+                                        class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300">
+                                    </div>
+                                    <span
+                                        class="transform group-hover:translate-x-2 transition-transform duration-300">Program
+                                        Intensif</span>
                                 </a>
                             </li>
                             <li class="group">
-                                <a href="#" class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
-                                    <div class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                                    <span class="transform group-hover:translate-x-2 transition-transform duration-300">Kelas Khusus</span>
+                                <a href="#"
+                                    class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
+                                    <div
+                                        class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300">
+                                    </div>
+                                    <span
+                                        class="transform group-hover:translate-x-2 transition-transform duration-300">Kelas
+                                        Khusus</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-    
+
                 <!-- Tautan - Column 3 -->
                 <div class="md:flex md:justify-center">
                     <div class="space-y-3">
-                        <h2 class="text-xl font-bold mb-5 border-b-2 border-yellow-400 pb-2 inline-block transform transition-all duration-300 hover:scale-105">Tautan</h2>
+                        <h2
+                            class="text-xl font-bold mb-5 border-b-2 border-yellow-400 pb-2 inline-block transform transition-all duration-300 hover:scale-105">
+                            Tautan</h2>
                         <ul class="space-y-3 text-sm">
                             <li class="group">
-                                <a href="#" class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
-                                    <div class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                                    <span class="transform group-hover:translate-x-2 transition-transform duration-300">Beranda</span>
+                                <a href="#"
+                                    class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
+                                    <div
+                                        class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300">
+                                    </div>
+                                    <span
+                                        class="transform group-hover:translate-x-2 transition-transform duration-300">Beranda</span>
                                 </a>
                             </li>
                             <li class="group">
-                                <a href="#" class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
-                                    <div class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                                    <span class="transform group-hover:translate-x-2 transition-transform duration-300">Tentang</span>
+                                <a href="#"
+                                    class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
+                                    <div
+                                        class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300">
+                                    </div>
+                                    <span
+                                        class="transform group-hover:translate-x-2 transition-transform duration-300">Tentang</span>
                                 </a>
                             </li>
                             <li class="group">
-                                <a href="#" class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
-                                    <div class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                                    <span class="transform group-hover:translate-x-2 transition-transform duration-300">Pendaftaran</span>
+                                <a href="#"
+                                    class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
+                                    <div
+                                        class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300">
+                                    </div>
+                                    <span
+                                        class="transform group-hover:translate-x-2 transition-transform duration-300">Pendaftaran</span>
                                 </a>
                             </li>
                             <li class="group">
-                                <a href="#" class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
-                                    <div class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                                    <span class="transform group-hover:translate-x-2 transition-transform duration-300">Galeri</span>
+                                <a href="#"
+                                    class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
+                                    <div
+                                        class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300">
+                                    </div>
+                                    <span
+                                        class="transform group-hover:translate-x-2 transition-transform duration-300">Galeri</span>
                                 </a>
                             </li>
                             <li class="group">
-                                <a href="#" class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
-                                    <div class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                                    <span class="transform group-hover:translate-x-2 transition-transform duration-300">FAQ</span>
+                                <a href="#"
+                                    class="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 transition-colors duration-300">
+                                    <div
+                                        class="w-2 h-2 bg-yellow-400 transform rotate-45 group-hover:rotate-90 transition-transform duration-300">
+                                    </div>
+                                    <span
+                                        class="transform group-hover:translate-x-2 transition-transform duration-300">FAQ</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-    
+
                 <!-- Kontak - Column 4 -->
                 <div class="space-y-5">
-                    <h2 class="text-xl font-bold mb-5 border-b-2 border-yellow-400 pb-2 inline-block transform transition-all duration-300 hover:scale-105">Kontak</h2>
+                    <h2
+                        class="text-xl font-bold mb-5 border-b-2 border-yellow-400 pb-2 inline-block transform transition-all duration-300 hover:scale-105">
+                        Kontak</h2>
                     <ul class="space-y-4 text-sm">
                         <li class="group flex items-start">
-                            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 group-hover:from-yellow-400 group-hover:to-orange-500 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 group-hover:rotate-6 shadow-lg group-hover:shadow-xl">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 group-hover:from-yellow-400 group-hover:to-orange-500 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 group-hover:rotate-6 shadow-lg group-hover:shadow-xl">
                                 <i class="fas fa-map-marker-alt text-white group-hover:animate-pulse"></i>
                             </div>
                             <span class="text-gray-200 group-hover:text-yellow-400 transition-colors duration-300">
@@ -2579,7 +3137,8 @@
                             </span>
                         </li>
                         <li class="group flex items-center">
-                            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 group-hover:from-yellow-400 group-hover:to-orange-500 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 group-hover:rotate-6 shadow-lg group-hover:shadow-xl">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 group-hover:from-yellow-400 group-hover:to-orange-500 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 group-hover:rotate-6 shadow-lg group-hover:shadow-xl">
                                 <i class="fas fa-phone-alt text-white group-hover:animate-pulse"></i>
                             </div>
                             <span class="text-gray-200 group-hover:text-yellow-400 transition-colors duration-300">
@@ -2587,7 +3146,8 @@
                             </span>
                         </li>
                         <li class="group flex items-center">
-                            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 group-hover:from-yellow-400 group-hover:to-orange-500 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 group-hover:rotate-6 shadow-lg group-hover:shadow-xl">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 group-hover:from-yellow-400 group-hover:to-orange-500 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 group-hover:rotate-6 shadow-lg group-hover:shadow-xl">
                                 <i class="fas fa-envelope text-white group-hover:animate-pulse"></i>
                             </div>
                             <span class="text-gray-200 group-hover:text-yellow-400 transition-colors duration-300">
@@ -2597,24 +3157,25 @@
                     </ul>
                 </div>
             </div>
-    
+
             <div class="mt-8 pt-4 border-t border-blue-600 text-center">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <p class="text-gray-300 text-sm">© 2025 HAFECS Research & Publication. All rights reserved.</p>
                     <div class="mt-3 md:mt-0 space-x-2">
-                        <a href="#" class="text-gray-300 text-sm hover:text-yellow-400 transition-colors duration-300">Kebijakan Privasi</a>
+                        <a href="#"
+                            class="text-gray-300 text-sm hover:text-yellow-400 transition-colors duration-300">Kebijakan
+                            Privasi</a>
                         <span class="text-gray-500">|</span>
-                        <a href="#" class="text-gray-300 text-sm hover:text-yellow-400 transition-colors duration-300">Syarat & Ketentuan</a>
+                        <a href="#"
+                            class="text-gray-300 text-sm hover:text-yellow-400 transition-colors duration-300">Syarat &
+                            Ketentuan</a>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- FontAwesome Script untuk Icon -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
     </footer>
     {{-- end Footer --}}
-
-</body>
-
-</html>
+@endsection
