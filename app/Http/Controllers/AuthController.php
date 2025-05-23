@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -17,7 +19,7 @@ class AuthController extends Controller
     public function adminLoginProcess(Request $request)
     {
         $request->validate([
-            'email' => ['required', 'string','email'],
+            'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string']
         ]);
 
@@ -38,14 +40,35 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request)
-{
-    Auth::logout();
+    {
+        Auth::logout();
 
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-    return redirect('/');
-}
+        return redirect('/');
+    }
+
+    public function loginStudents() {
+        return view('auth.studentLoginPage');
+    }
+
+    public function loginStudentsProcess(Request $request) {
+        $validated = $request->validate([
+            'token' => 'required'
+        ]);
+        $user = User::where('token', $validated['token'])->first();
+        if(!$user) {
+            Alert::error('error', 'user tidak ditemukan, token salah');
+            return redirect()->back();
+        }
+        Auth::login($user);
+        Alert::success('success', 'Berhasil Login!');
+        return redirect()->route('students.jenjang.index');
+    }
+
+
+
 
 
 }

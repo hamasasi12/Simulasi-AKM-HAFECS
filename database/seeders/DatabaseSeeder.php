@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             IndoRegionSeeder::class,
             CategorySeeders::class,
             RolePermissionSeeders::class,
-            // QuestionSeeders::class,
+            QuestionSeeders::class,
         ]);
 
         User::factory()->create([

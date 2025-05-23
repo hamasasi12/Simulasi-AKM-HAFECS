@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Route::get('/admin', [AuthController::class, 'adminLogin'])->name('admin.login');
 Route::get('/loginn', [AuthController::class, 'adminLogin'])->name('login');
+Route::get('/login/students', [AuthController::class, 'loginStudents'])->name('login.students');
+Route::post('/login/students', [AuthController::class, 'loginStudentsProcess'])->name('login.students.post');
+
 Route::post('/admin/post', [AuthController::class, 'adminLoginProcess'])->name('admin.login.process');
 
 Route::middleware(['guest'])->group(function () {
@@ -63,6 +66,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/dashboard/jenjang/sd/import', [ImportSoalSDController::class, 'import'])->name('admin.dashboard.jenjang.sd.import');
 
     Route::get('/students/index', [StudentController::class, 'index'])->name('students.jenjang.index');
+    Route::get('/students/history/index', [StudentController::class, 'historyTest'])->name('students.jenjang.history.index');
 
      Route::prefix('exams')->name('exams.')->group(function () {
         Route::get('/', [ExamController::class, 'index'])->name('index');

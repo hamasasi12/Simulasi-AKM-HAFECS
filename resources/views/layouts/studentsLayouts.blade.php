@@ -15,7 +15,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-gray-800">
     <header>
         <nav
             class="fixed top-0 z-50 w-full bg-gradient-to-r from-blue-700 to-indigo-800 dark:bg-gray-800 dark:border-gray-700">
@@ -37,7 +37,7 @@
                         </button> --}}
                         <div class="flex items-center gap-2 ms-2 md:me-24">
                             <img src="{{ asset('images/HRP-icon.jpg') }}" class="h-10 w-10 rounded-md" alt="HRP Icon" />
-                            <p class="ml-2 text-white text-lg font-semibold tracking-wide">
+                            <p class="ml-2 text-white text-lg font-semibold tracking-wide hidden md:block ">
                                 Simulasi Jenjang {{ Auth::user()->getRoleNames()->first() }}
                             </p>
 
@@ -50,14 +50,14 @@
                             {{-- user foto start --}}
                             <div class="flex items-center space-x-4 pr-4">
                                 <!-- Tombol Profile -->
-                                <button type="button"
+                                <button id="showModal"
                                     class="flex items-center space-x-2 py-1 px-2 text-sm bg-gray-800 rounded-md hover:bg-gray-700 focus:ring-4 focus:ring-indigo-500 dark:focus:ring-gray-600 transition-all duration-300 ease-in-out"
-                                    aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                                    aria-expanded="false">
                                     <span class="sr-only">Open user menu</span>
                                     <div class="text-left">
                                         <p class="text-sm text-white">
-                                            <span>Welcome,</span>
-                                            {{ auth()->user()->name }}
+                                            {{-- <span>Welcome,</span> --}}
+                                            {{ Auth::user()->token }}
                                         </p>
                                     </div>
                                 </button>
@@ -67,44 +67,12 @@
                                     @csrf
                                     <button type="submit"
                                         class="flex items-center px-3 py-2 text-sm bg-red-600 text-white font-medium rounded-md hover:bg-red-700 transition-all">
-                                        <i class="fa-solid fa-right-from-bracket mr-2"></i> Logout
+                                        <i class="fa-solid fa-right-from-bracket md:mr-2"></i> 
+                                        <p class="hidden md:block ">Logout</p>
                                     </button>
                                 </form>
                             </div>
 
-                            {{-- user foto end --}}
-
-                            {{-- toggle user menu start --}}
-                            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow"
-                                id="dropdown-user">
-                                <div class="px-4 py-3" role="none">
-                                    <p class="text-sm font-medium text-gray-900 truncate" role="none">
-                                        {{ auth()->user()->email }}
-                                    </p>
-                                </div>
-                                <ul class="py-1" role="none">
-                                    {{-- <li>
-                                        <a href="#"
-                                            class="flex items-center px-4 py-2 text-sm text-gray-700 font-medium hover:bg-gray-100"
-                                            role="menuitem">
-                                            <i class="fa-solid fa-gear mr-2 text-gray-500"></i>
-                                            Settings
-                                        </a> --}}
-                                    </li>
-                                    <li>
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <button type="submit"
-                                                class="flex items-center w-full text-left px-4 py-2 text-sm text-red-400 font-medium hover:bg-gray-100"
-                                                role="menuitem">
-                                                <i class="fa-solid fa-right-from-bracket mr-2 text-red-500"></i>
-                                                Log Out
-                                            </button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
-                            {{-- toggle user menu end --}}
                         </div>
                     </div>
 

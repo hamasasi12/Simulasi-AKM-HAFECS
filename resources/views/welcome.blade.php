@@ -74,7 +74,7 @@
                             class="absolute bottom-0 left-0 w-0 h-1 bg-yellow-300 group-hover:w-full transition-all duration-300">
                         </div>
                     </a>
-                    <a href="login"
+                    <a href="{{ route('login.students') }}"
                         class="text-white py-2 px-4 rounded-lg bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-md">
                         Login
                     </a>
@@ -97,7 +97,7 @@
                     class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">Galeri</a>
                 <a href="#faq"
                     class="text-white py-2 px-6 w-4/5 rounded-lg hover:bg-blue-600 hover:text-yellow-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-center">FAQ</a>
-                <a href="login"
+                <a href="{{ route('login.students') }}"
                     class="text-white py-2 px-4 rounded-lg bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-md">
                     Login
                 </a>
@@ -145,14 +145,14 @@
                 <div class="animate-fadeIn">
                     <h1 class="text-6xl font-extrabold leading-tight mt-2 transition-all duration-300">
                         <span
-                            class="text-blue-600 hover:text-blue-700 inline-block transform hover:scale-110 transition-all duration-300">Program
+                            class="text-blue-600 hover:text-blue-700 inline-block transform hover:scale-105 transition-all duration-300">Program
                             Literasi</span>
                         <span
-                            class="text-amber-500 hover:text-amber-600 inline-block transform hover:scale-110 transition-all duration-300">dan</span><br>
+                            class="text-amber-500 hover:text-amber-600 inline-block transform hover:scale-105 transition-all duration-300">dan</span><br>
                         <span
-                            class="text-blue-600 hover:text-blue-700 inline-block transform hover:scale-110 transition-all duration-300">Numerasi</span>
+                            class="text-blue-600 hover:text-blue-700 inline-block transform hover:scale-105 transition-all duration-300">Numerasi</span>
                         <span
-                            class="text-amber-500 hover:text-amber-600 inline-block transform hover:scale-110 transition-all duration-300">untuk
+                            class="text-amber-500 hover:text-amber-600 inline-block transform hover:scale-105 transition-all duration-300">untuk
                             Anak-Anak</span>
                     </h1>
                     <p
@@ -419,7 +419,7 @@
                 class="inline-block px-4 py-1 rounded-full bg-blue-200 text-blue-800 mb-4 text-sm font-medium transform transition-transform hover:scale-105 hover:shadow-md cursor-pointer">
                 Konsep Dasar
             </div>
-            <h2 class="text-4xl sm:text-5xl font-bold mb-2 tracking-tight">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-2 tracking-tight text-gray-700">
                 Pengertian <span class="text-blue-600 relative">
                     Literasi
                     <span
@@ -466,11 +466,11 @@
                                     d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold ml-4 transition-all duration-300 group-hover:text-blue-600">Literasi
+                        <h3 class="text-2xl font-bold text-gray-700 ml-4 transition-all duration-300 group-hover:text-blue-600">Literasi
                         </h3>
                     </div>
 
-                    <p class="text-gray-700 mb-6 transition-all duration-300 group-hover:text-gray-800">
+                    <p class="text-gray-700 text-justify mb-6 transition-all duration-300 group-hover:text-gray-800">
                         Literasi adalah kemampuan untuk membaca, menulis, berbicara, dan
                         memahami bahasa. Ini mencakup kemampuan untuk mengidentifikasi,
                         memahami, menafsirkan, menciptakan, berkomunikasi, dan menghitung
@@ -563,11 +563,11 @@
                                     d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold ml-4 transition-all duration-300 group-hover:text-yellow-600">
-                            Numerasi</h3>
+                        <h3 class="text-2xl text-gray-700 font-bold ml-4 transition-all duration-300 group-hover:text-yellow-600">
+                            Numerasi</h3> 
                     </div>
 
-                    <p class="text-gray-700 mb-6 transition-all duration-300 group-hover:text-gray-800">
+                    <p class="text-gray-700 text-justify mb-6 transition-all duration-300 group-hover:text-gray-800">
                         Numerasi adalah kemampuan untuk memahami dan menggunakan
                         angka dan konsep matematika dalam kehidupan sehari-hari. Ini
                         mencakup kemampuan untuk memecahkan masalah, berpikir secara
@@ -903,7 +903,7 @@
                         </svg>
                     </div>
                     <h3
-                        class="text-2xl font-bold text-gray-800 mt-6 transition-all duration-300 group-hover:text-blue-700 group-hover:translate-x-2">
+                        class="text-2xl font-bold text-gray-700 mt-6 transition-all duration-300 group-hover:text-blue-700 group-hover:translate-x-2">
                         Fondasi Pendidikan</h3>
                 </div>
                 <p class="text-gray-700 text-lg transition-all duration-300 group-hover:text-blue-900">
@@ -930,7 +930,7 @@
                         </svg>
                     </div>
                     <h3
-                        class="text-2xl font-bold text-gray-800 mt-6 transition-all duration-300 group-hover:text-amber-600 group-hover:translate-x-2">
+                        class="text-2xl font-bold text-gray-600 mt-6 transition-all duration-300 group-hover:text-amber-600 group-hover:translate-x-2">
                         Keterampilan Hidup</h3>
                 </div>
                 <p class="text-gray-700 text-lg transition-all duration-300 group-hover:text-amber-900">
@@ -956,7 +956,7 @@
                         </svg>
                     </div>
                     <h3
-                        class="text-2xl font-bold text-gray-800 mt-6 transition-all duration-300 group-hover:text-blue-800 group-hover:translate-x-2">
+                        class="text-2xl font-bold text-gray-700 mt-6 transition-all duration-300 group-hover:text-blue-800 group-hover:translate-x-2">
                         Masa Depan Cerah</h3>
                 </div>
                 <p class="text-gray-700 text-lg transition-all duration-300 group-hover:text-blue-900">
@@ -2721,7 +2721,7 @@
             <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">
                 Pertanyaan Umum
             </span>
-            <h2 class="text-3xl font-bold text-black mt-3">
+            <h2 class="text-3xl font-bold text-gray-700 mt-3">
                 Frequently Asked Questions
             </h2>
             <p class="text-gray-900 mt-2">

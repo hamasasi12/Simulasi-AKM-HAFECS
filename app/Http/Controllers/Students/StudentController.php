@@ -39,6 +39,14 @@ class StudentController extends Controller
     }
 
     public function index() {
-        return view('students.index');
+        return view('students.index', [
+            'token' => Auth::user()->token
+        ]);
+    }
+
+    public function historyTest() {
+        return view('students.historyTest', [
+            'token' => Auth::user()->token
+        ]);
     }
 }
