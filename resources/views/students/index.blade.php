@@ -235,5 +235,3 @@
         });
     </script>
 @endsection
-
-
