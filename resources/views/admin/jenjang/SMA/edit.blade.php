@@ -150,6 +150,18 @@
                                     <x-input-error :messages="$errors->get('option_d')" class="mt-1 text-xs" />
                                 </div>
 
+                                <!-- Opsi E -->
+                                <div>
+                                    <label for="option_e" class="block mb-2 text-sm font-medium text-gray-700">
+                                        Opsi E <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" name="option_e" id="option_e" required
+                                        placeholder="Input option E"
+                                        class="pl-3 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        value="{{ $question->option_e }}">
+                                    <x-input-error :messages="$errors->get('option_e')" class="mt-1 text-xs" />
+                                </div>
+
                                 <!-- Correct Answer -->
                                 <div>
                                     <label for="correct_answer" class="block mb-2 text-sm font-medium text-gray-700">

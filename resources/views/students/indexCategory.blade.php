@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="py-12 bg-gradient-to-br">
-        <a href="{{ route('students.jenjang.index') }}" class="flex items-center text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition max-w-xs">
+
+        <a href="{{ route('students.jenjang.index') }}"
+            class="inline-flex items-center bg-white text-gray-700 px-4 py-2.5 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-50 transition-all duration-200 font-medium border border-gray-200">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -13,8 +15,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-10 text-center">
                 <h1 class="text-4xl font-extrabold text-gray-200 mb-2">Kategori Ujian</h1>
-                <p class="text-gray-200 text-lg max-w-2xl mx-auto">Pilih kategori ujian yang ingin Anda ikuti dan mulai
-                    perjalanan pembelajaran Anda</p>
+                <p class="text-gray-200 text-lg max-w-2xl mx-auto">Pilih kategori ujian yang ingin Anda ikuti berdasarkan
+                    kategori dibawah ini!</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -25,7 +27,7 @@
                         <div class="p-7">
                             <div class="flex items-start justify-between mb-5">
                                 <h3
-                                    class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                                    class="text-2xl font-bold text-gray-700 group-hover:text-blue-600 transition-colors duration-300">
                                     {{ $category->name }}</h3>
                                 <span
                                     class="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full flex items-center">
@@ -123,7 +125,7 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                             </svg>
-                                            Lanjutkan
+                                            Siap Mengikuti Simulasi
                                         </button>
                                     </form>
                                 @endif

@@ -41,8 +41,8 @@
 
             <!-- Form body -->
             <div class="p-2">
-                <form action="{{ route('admin.dashboard.jenjang.smp.update', $question->id) }}" enctype="multipart/form-data"
-                    method="post">
+                <form action="{{ route('admin.dashboard.jenjang.smp.update', $question->id) }}"
+                    enctype="multipart/form-data" method="post">
                     @csrf
                     @method('put')
 
@@ -66,8 +66,9 @@
                                         </div>
                                         <select id="category_id" name="category_id" onchange="showCustomInput()"
                                             class="pl-10 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                            <option value="{{ $categoriesEdit->id }}" selected>--{{ $categoriesEdit->name }}--</option>
-                                            @forelse ($queryCategories as $index )
+                                            <option value="{{ $categoriesEdit->id }}" selected>
+                                                --{{ $categoriesEdit->name }}--</option>
+                                            @forelse ($queryCategories as $index)
                                                 <option value="{{ $index->id }}">{{ $index->name }}</option>
                                             @empty
                                                 <option value="">data tidak ditemukan</option>
@@ -147,6 +148,18 @@
                                         class="pl-3 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         value="{{ $question->option_d }}">
                                     <x-input-error :messages="$errors->get('option_d')" class="mt-1 text-xs" />
+                                </div>
+
+                                <!-- Opsi E -->
+                                <div>
+                                    <label for="option_e" class="block mb-2 text-sm font-medium text-gray-700">
+                                        Opsi D <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" name="option_e" id="option_e" required
+                                        placeholder="Input option E"
+                                        class="pl-3 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        value="{{ $question->option_e }}">
+                                    <x-input-error :messages="$errors->get('option_e')" class="mt-1 text-xs" />
                                 </div>
 
                                 <!-- Correct Answer -->

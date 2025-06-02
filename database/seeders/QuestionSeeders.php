@@ -23,6 +23,7 @@ class QuestionSeeders extends Seeder
                     'option_b'       => 'Pilihan B',
                     'option_c'       => 'Pilihan C',
                     'option_d'       => 'Pilihan D',
+                    'option_e'       => 'Pilihan E',
                     'correct_answer' => 'A', // bisa di-random kalau mau
                 ]);
             }

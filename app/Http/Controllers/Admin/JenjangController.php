@@ -56,7 +56,8 @@ class JenjangController extends Controller
             'option_b' => 'required|string',
             'option_c' => 'required|string',
             'option_d' => 'required|string',
-            'correct_answer' => 'required|in:a,b,c,d',
+            'option_e' => 'required|string',
+            'correct_answer' => 'required|in:a,b,c,d,e',
         ]);
 
         try {
@@ -112,7 +113,8 @@ class JenjangController extends Controller
             'option_b' => 'required|string',
             'option_c' => 'required|string',
             'option_d' => 'required|string',
-            'correct_answer' => 'required|in:a,b,c,d',
+            'option_e' => 'required|string',
+            'correct_answer' => 'required|in:a,b,c,d,e',
         ]);
 
         DB::beginTransaction();
@@ -260,7 +262,8 @@ class JenjangController extends Controller
             'option_b' => 'required|string',
             'option_c' => 'required|string',
             'option_d' => 'required|string',
-            'correct_answer' => 'required|in:a,b,c,d',
+            'option_e' => 'required|string',
+            'correct_answer' => 'required|in:a,b,c,d,e',
         ]);
 
         try {
@@ -318,7 +321,8 @@ class JenjangController extends Controller
             'option_b' => 'required|string',
             'option_c' => 'required|string',
             'option_d' => 'required|string',
-            'correct_answer' => 'required|in:a,b,c,d',
+            'option_e' => 'required|string',
+            'correct_answer' => 'required|in:a,b,c,d,e',
         ]);
 
         DB::beginTransaction();
@@ -454,7 +458,8 @@ class JenjangController extends Controller
             'option_b' => 'required|string',
             'option_c' => 'required|string',
             'option_d' => 'required|string',
-            'correct_answer' => 'required|in:a,b,c,d',
+            'option_e' => 'required|string',
+            'correct_answer' => 'required|in:a,b,c,d,e',
         ]);
 
         try {
@@ -492,7 +497,8 @@ class JenjangController extends Controller
             'option_b' => 'required|string',
             'option_c' => 'required|string',
             'option_d' => 'required|string',
-            'correct_answer' => 'required|in:a,b,c,d',
+            'option_e' => 'required|string',
+            'correct_answer' => 'required|in:a,b,c,d,e',
         ]);
 
         DB::beginTransaction();

@@ -118,6 +118,16 @@
                                         <p>{{ $questionA->option_d }}</p>
                                     </div>
                                 </div>
+
+                                 <!-- Opsi E -->
+                                <div>
+                                    <h4 class="font-medium text-gray-700 mb-2">
+                                        Opsi E {{ $questionA->correct_answer == 'e' ? '(Jawaban Benar)' : '' }}
+                                    </h4>
+                                    <div class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'e' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
+                                        <p>{{ $questionA->option_e }}</p>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Metadata -->

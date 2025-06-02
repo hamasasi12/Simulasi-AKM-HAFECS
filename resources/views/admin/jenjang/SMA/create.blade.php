@@ -42,7 +42,8 @@
 
             <!-- Form body -->
             <div class="p-2">
-                <form action="{{ route('admin.dashboard.jenjang.sma.store') }}" enctype="multipart/form-data" method="POST">
+                <form action="{{ route('admin.dashboard.jenjang.sma.store') }}" enctype="multipart/form-data"
+                    method="POST">
                     @csrf
 
                     <!-- Form fields in sections -->
@@ -73,7 +74,7 @@
                                     <x-input-error :messages="$errors->get('category_id')" class="mt-1 text-xs" />
                                 </div>
                                 {{-- <input type="text" hidden value="1" name="category_id"> --}}
-                                    {{-- <x-input-error :messages="$errors->get('category_id')" class="mt-1 text-xs" /> --}}
+                                {{-- <x-input-error :messages="$errors->get('category_id')" class="mt-1 text-xs" /> --}}
 
                                 <!-- text soal -->
                                 <div>
@@ -141,6 +142,18 @@
                                         class="pl-3 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                         value="{{ old('option_d') }}">
                                     <x-input-error :messages="$errors->get('option_d')" class="mt-1 text-xs" />
+                                </div>
+
+                                <!-- Opsi E -->
+                                <div>
+                                    <label for="option_e" class="block mb-2 text-sm font-medium text-gray-700">
+                                        Opsi D <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" name="option_e" id="option_e" required
+                                        placeholder="Input option E"
+                                        class="pl-3 shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                        value="{{ old('option_e') }}">
+                                    <x-input-error :messages="$errors->get('option_e')" class="mt-1 text-xs" />
                                 </div>
 
                                 <!-- Correct Answer -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\Exam;
 use App\Models\Questions;
 use App\Models\Categories;
@@ -140,7 +141,7 @@ class ExamController extends Controller
         return redirect()->route('exams.result', $exam);
     }
 
-     public function result(Exam $exam)
+    public function result(Exam $exam)
     {
         // Ensure the exam belongs to the authenticated user
         if ($exam->user_id != Auth::id()) {
@@ -159,5 +160,9 @@ class ExamController extends Controller
             'wrongAnswers',
             'unansweredQuestions'
         ));
+    }
+
+    public function instruction() {
+        return view('students.panduanUjian');
     }
 }

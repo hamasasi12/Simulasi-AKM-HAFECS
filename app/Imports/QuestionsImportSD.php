@@ -18,6 +18,7 @@ class QuestionsImportSD implements ToModel, WithHeadingRow
             'option_b'        => $row['option_b'],
             'option_c'        => $row['option_c'],
             'option_d'        => $row['option_d'],
+            'option_e'        => $row['option_e'],
             'correct_answer'  => $row['correct_answer'],
         ]);
     }

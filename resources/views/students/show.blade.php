@@ -89,7 +89,8 @@
                                         'a' => $question->option_a,
                                         'b' => $question->option_b,
                                         'c' => $question->option_c,
-                                        'd' => $question->option_d
+                                        'd' => $question->option_d,
+                                        'e' => $question->option_e,
                                     ];
                                 @endphp
 

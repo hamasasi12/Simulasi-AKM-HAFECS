@@ -19,7 +19,8 @@ return new class extends Migration {
             $table->text('option_b')->nullable();
             $table->text('option_c')->nullable();
             $table->text('option_d')->nullable();
-            $table->enum('correct_answer', ['a', 'b', 'c', 'd']);
+            $table->text('option_e')->nullable();
+            $table->enum('correct_answer', ['a', 'b', 'c', 'd', 'e']);
             $table->timestamps();
         });
     }

@@ -76,9 +76,13 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/{exam}/answer', [ExamController::class, 'answer'])->name('answer');
         Route::post('/{exam}/finish', [ExamController::class, 'finish'])->name('finish');
         Route::get('/{exam}/result', [ExamController::class, 'result'])->name('result');
+        // Route::get('/instruction', [ExamController::class, 'instruction'])->name('instruction');
     });
 });
 
 Route::get('/regencies/{provinceId}', [IndoRegionController::class, 'getRegencies']);
 Route::get('/districts/{regencyId}', [IndoRegionController::class, 'getDistricts']);
 Route::get('/villages/{districtId}', [IndoRegionController::class, 'getVillages']);
+
+        Route::get('/instruction', [ExamController::class, 'instruction'])->name('instruction');
+

@@ -15,8 +15,8 @@
                     class="inline-flex items-center px-4 py-2 rounded-lg bg-yellow-500 text-white hover:bg-yellow-600 transition-colors duration-200 shadow">
                     <i class="mr-2 fa-solid fa-pen-to-square"></i> Edit
                 </a>
-                <form action="{{ route('admin.dashboard.jenjang.sma.delete', $questionA->id) }}" method="POST" class="inline"
-                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus soal ini?')">
+                <form action="{{ route('admin.dashboard.jenjang.sma.delete', $questionA->id) }}" method="POST"
+                    class="inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus soal ini?')">
                     @csrf
                     @method('DELETE')
                     <button type="submit"
@@ -68,13 +68,14 @@
                             </div>
 
                             {{-- Gambar --}}
-                            @if($questionA->image)
-                            <div>
-                                <h4 class="font-medium text-gray-700 mb-2">Gambar</h4>
-                                <div class="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
-                                    <img src="{{ asset('storage/' . $questionA->image) }}" alt="Gambar Soal" class="max-h-96 mx-auto">
+                            @if ($questionA->image)
+                                <div>
+                                    <h4 class="font-medium text-gray-700 mb-2">Gambar</h4>
+                                    <div class="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
+                                        <img src="{{ asset('storage/' . $questionA->image) }}" alt="Gambar Soal"
+                                            class="max-h-96 mx-auto">
+                                    </div>
                                 </div>
-                            </div>
                             @endif
 
                             <!-- Options -->
@@ -84,7 +85,8 @@
                                     <h4 class="font-medium text-gray-700 mb-2">
                                         Opsi A {{ $questionA->correct_answer == 'a' ? '(Jawaban Benar)' : '' }}
                                     </h4>
-                                    <div class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'a' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
+                                    <div
+                                        class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'a' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
                                         <p>{{ $questionA->option_a }}</p>
                                     </div>
                                 </div>
@@ -94,7 +96,8 @@
                                     <h4 class="font-medium text-gray-700 mb-2">
                                         Opsi B {{ $questionA->correct_answer == 'b' ? '(Jawaban Benar)' : '' }}
                                     </h4>
-                                    <div class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'b' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
+                                    <div
+                                        class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'b' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
                                         <p>{{ $questionA->option_b }}</p>
                                     </div>
                                 </div>
@@ -104,7 +107,8 @@
                                     <h4 class="font-medium text-gray-700 mb-2">
                                         Opsi C {{ $questionA->correct_answer == 'c' ? '(Jawaban Benar)' : '' }}
                                     </h4>
-                                    <div class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'c' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
+                                    <div
+                                        class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'c' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
                                         <p>{{ $questionA->option_c }}</p>
                                     </div>
                                 </div>
@@ -114,8 +118,20 @@
                                     <h4 class="font-medium text-gray-700 mb-2">
                                         Opsi D {{ $questionA->correct_answer == 'd' ? '(Jawaban Benar)' : '' }}
                                     </h4>
-                                    <div class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'd' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
+                                    <div
+                                        class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'd' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
                                         <p>{{ $questionA->option_d }}</p>
+                                    </div>
+                                </div>
+
+                                <!-- Opsi E -->
+                                <div>
+                                    <h4 class="font-medium text-gray-700 mb-2">
+                                        Opsi E {{ $questionA->correct_answer == 'e' ? '(Jawaban Benar)' : '' }}
+                                    </h4>
+                                    <div
+                                        class="bg-white p-3 rounded-lg border {{ $questionA->correct_answer == 'e' ? 'border-green-500 bg-green-50' : 'border-gray-200' }} shadow-sm">
+                                        <p>{{ $questionA->option_e }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +144,7 @@
                                         <p>{{ $questionA->created_at->format('d F Y H:i') }}</p>
                                     </div>
                                 </div>
-                                
+
                                 <div>
                                     <h4 class="font-medium text-gray-700 mb-2">Diperbarui pada</h4>
                                     <div class="bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
@@ -152,4 +168,3 @@
         }
     </style>
 @endsection
-
