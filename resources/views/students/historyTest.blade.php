@@ -3,14 +3,13 @@
 @section('content')
     <div class="py-8">
         <a href="{{ route('students.jenjang.index') }}"
-            class="flex items-center text-gray-800 px-4 py-2 rounded hover:text-black transition">
+            class="inline-flex items-center bg-white text-gray-700 px-4 py-2.5 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-50 transition-all duration-200 font-medium border border-gray-200">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
-            <span class="underline">Kembali</span>
+            Kembali
         </a>
-
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-xl">
@@ -51,10 +50,10 @@
                                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Skor
                                             </th>
-                                            <th scope="col"
+                                            {{-- <th scope="col"
                                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Aksi
-                                            </th>
+                                            </th> --}}
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
@@ -94,19 +93,19 @@
                                                         {{ $exam->score }}/30 ({{ number_format($percentage, 2) }}%)
                                                     </span>
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    <a href="#"
+                                                {{-- <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                    <a href=""
                                                         class="text-indigo-600 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 px-3 py-1 rounded-md transition duration-200">
                                                         Detail
                                                     </a>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
 
-                            <div class="px-6 py-4 bg-gray-50 border-t border-gray-200">
+                            {{-- <div class="px-6 py-4 bg-gray-50 border-t border-gray-200">
                                 <a href="#"
                                     class="text-indigo-600 hover:text-indigo-900 font-medium flex items-center justify-end">
                                     Lihat Semua Riwayat
@@ -117,7 +116,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     @else
                         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center">

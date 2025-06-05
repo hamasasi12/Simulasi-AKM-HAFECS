@@ -1,352 +1,407 @@
 @extends('layouts.examLayouts')
 
 @section('content')
-<div class="min-h-screen py-6">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Exam Header -->
-        <div class="bg-white rounded-xl shadow-lg p-6 mb-6 border border-gray-100">
-            <div class="flex flex-col sm:flex-row justify-between items-center">
-                <div class="mb-4 sm:mb-0">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-1">
-                        {{ $exam->category->name }}
-                    </h2>
-                    <p class="text-gray-500 text-sm font-medium">Ujian Sertifikasi</p>
-                </div>
-                
-                <div class="flex items-center space-x-4">
-                    <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold shadow-sm">
-                        <span class="hidden sm:inline">Soal </span>{{ $questions->currentPage() }} dari {{ $totalQuestions }}
+    <div class="min-h-screen py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-6">
+            <!-- Left Column - Question Content (70% width on large screens) -->
+            <div class="lg:w-7/12">
+                <!-- Exam Header -->
+
+
+                @if ($questions->count() > 0)
+                    @php
+                        $question = $questions->first();
+                        $userAnswer =
+                            $exam->questions()->where('questions.id', $question->id)->first()->pivot->user_answer ??
+                            null;
+                    @endphp
+
+                    <!-- Question Card -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-6 border border-gray-200">
+                        <!-- Question Header -->
+                        <div class="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
+                            <h3 class="text-lg font-bold text-white flex items-center">
+                                <span
+                                    class="bg-white text-blue-700 rounded-full h-8 w-8 flex items-center justify-center mr-3 font-bold shadow-sm">
+                                    {{ $questions->currentPage() }}
+                                </span>
+                                Pertanyaan
+                            </h3>
+                        </div>
+
+                        <!-- Question Content -->
+                        <div class="p-6">
+                            <div class="prose prose-lg max-w-none mb-6">
+                                <p class="text-gray-800 text-lg leading-relaxed">{!! $question->question_text !!}</p>
+                            </div>
+
+                            @if ($question->image)
+                                <div class="mb-6 flex justify-center">
+                                    <div class="relative group">
+                                        <img src="{{ asset('/storage/' . $question->image) }}" alt="Gambar Soal"
+                                            class="max-w-full h-auto rounded-lg shadow-md border border-gray-200 transition-transform duration-300 group-hover:scale-[1.02] cursor-zoom-in"
+                                            onclick="window.open(this.src, '_blank')">
+                                    </div>
+                                </div>
+                            @endif
+
+                            <!-- Answer Options -->
+                            <form action="{{ route('exams.answer', $exam) }}" method="POST" id="answerForm">
+                                @csrf
+                                <input type="hidden" name="question_id" value="{{ $question->id }}">
+
+                                <div class="space-y-3 mb-8">
+                                    @php
+                                        $options = [
+                                            'a' => $question->option_a,
+                                            'b' => $question->option_b,
+                                            'c' => $question->option_c,
+                                            'd' => $question->option_d,
+                                            'e' => $question->option_e,
+                                        ];
+                                    @endphp
+
+                                    @foreach ($options as $key => $option)
+                                        @if ($option)
+                                            <div class="flex items-center mb-2">
+                                                <input type="radio" name="user_answer" id="answer_{{ $key }}"
+                                                    value="{{ $key }}" {{ $userAnswer == $key ? 'checked' : '' }}
+                                                    class="mr-2">
+                                                <label for="answer_{{ $key }}"
+                                                    class="text-gray-800 cursor-pointer">
+                                                    {{ strtoupper($key) }}. {{ $option }}
+                                                </label>
+                                            </div>
+                                        @endif
+                                    @endforeach
+
+                                </div>
+
+                                <!-- Navigation Buttons -->
+                                <div class="flex flex-col sm:flex-row justify-between gap-3">
+                                    @if ($questions->currentPage() > 1)
+                                        <a href="{{ $questions->previousPageUrl() }}"
+                                            class="order-2 sm:order-1 flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 px-5 rounded-lg transition duration-150 shadow-sm hover:shadow">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            Sebelumnya
+                                        </a>
+                                    @else
+                                        <div class="order-2 sm:order-1"></div>
+                                    @endif
+
+                                    <div class="order-1 sm:order-2 flex gap-3">
+                                        @if ($questions->currentPage() < $totalQuestions)
+                                            <input type="hidden" name="next_question"
+                                                value="{{ $questions->currentPage() + 1 }}">
+                                            <button type="submit"
+                                                class="flex-1 sm:flex-none flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-lg transition duration-150 shadow-sm hover:shadow">
+                                                Selanjutnya
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        @else
+                                            <button type="submit"
+                                                class="flex-1 sm:flex-none bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-lg transition duration-150 shadow-sm hover:shadow">
+                                                Simpan Jawaban
+                                            </button>
+                                        @endif
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold shadow-sm">
-                        {{ $answeredQuestions }}/{{ $totalQuestions }} Terjawab
-                    </div>
-                </div>
+                @endif
             </div>
-            
-            <!-- Progress Bar -->
-            <div class="mt-6">
-                <div class="flex justify-between text-sm text-gray-600 mb-2">
-                    <span>Progress</span>
-                    <span>{{ round(($answeredQuestions / $totalQuestions) * 100) }}%</span>
+
+            <!-- Right Column - Question Navigation (30% width on large screens) -->
+            <div class="lg:w-5/12">
+                <!-- Question Navigation Panel -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 sticky top-6">
+                    <div class="p-5">
+                        <div class="flex flex-col sm:flex-row justify-between items-center mb-5">
+                            <h3 class="text-lg font-bold text-gray-800 mb-3 sm:mb-0">Navigasi Soal</h3>
+
+                            @if ($answeredQuestions > 29)
+                                <form action="{{ route('exams.finish', $exam) }}" method="POST" id="finishExamForm"
+                                    class="inline-block">
+                                    @csrf
+                                    <button type="button" onclick="confirmFinish()"
+                                        class="flex items-center bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2.5 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Selesaikan Ujian
+                                    </button>
+                                </form>
+
+                                <script>
+                                    function confirmFinish() {
+                                        Swal.fire({
+                                            title: 'Konfirmasi Penyelesaian Ujian',
+                                            text: "Apakah Anda yakin ingin menyelesaikan ujian ini? Pastikan semua jawaban telah disimpan.",
+                                            icon: 'question',
+                                            showCancelButton: true,
+                                            confirmButtonText: 'Ya, Selesaikan!',
+                                            cancelButtonText: 'Batal',
+                                            customClass: {
+                                                confirmButton: 'bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-4 py-2 rounded',
+                                                cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold px-4 py-2 rounded'
+                                            },
+                                            buttonsStyling: false // penting biar Tailwind-nya dipakai, bukan style default Swal
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                document.getElementById('finishExamForm').submit();
+                                            }
+                                        });
+                                    }
+                                </script>
+                            @endif
+                        </div>
+
+                        <!-- Legend -->
+                        <div class="flex flex-wrap gap-3 mb-4 text-xs">
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-4 h-4 bg-blue-600 rounded-md"></div>
+                                <span class="text-gray-600">Aktif</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-4 h-4 bg-green-500 rounded-md"></div>
+                                <span class="text-gray-600">Terjawab</span>
+                            </div>
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-4 h-4 bg-gray-100 border border-gray-300 rounded-md"></div>
+                                <span class="text-gray-600">Belum</span>
+                            </div>
+                            {{-- <div class="flex items-center gap-1.5">
+                            <div class="w-4 h-4 bg-yellow-100 border border-yellow-400 rounded-md"></div>
+                            <span class="text-gray-600">Ditandai</span>
+                        </div> --}}
+                        </div>
+
+                        <!-- Question Grid -->
+                        <div
+                            class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-2 max-h-96 overflow-y-auto custom-scrollbar p-1">
+                            @for ($i = 1; $i <= $totalQuestions; $i++)
+                                @php
+                                    $pageQuestion = $exam
+                                        ->questions()
+                                        ->skip($i - 1)
+                                        ->first();
+                                    $hasAnswer = $pageQuestion ? $pageQuestion->pivot->user_answer : null;
+                                    $isMarked = $pageQuestion ? $pageQuestion->pivot->is_marked : false;
+
+                                    if ($questions->currentPage() == $i) {
+                                        $buttonClass = 'bg-blue-600 text-white ring-2 ring-blue-300';
+                                    } elseif ($isMarked) {
+                                        $buttonClass =
+                                            'bg-yellow-100 border-yellow-400 text-yellow-800 hover:bg-yellow-200';
+                                    } elseif ($hasAnswer) {
+                                        $buttonClass = 'bg-green-500 hover:bg-green-600 text-white';
+                                    } else {
+                                        $buttonClass =
+                                            'bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300';
+                                    }
+                                @endphp
+                                <a href="{{ route('exams.show', ['exam' => $exam, 'page' => $i]) }}"
+                                    class="{{ $buttonClass }} font-medium h-9 w-full flex items-center justify-center rounded-md transition-colors duration-150 text-sm"
+                                    title="Soal {{ $i }}{{ $hasAnswer ? ' (Sudah dijawab)' : ' (Belum dijawab)' }}">
+                                    {{ $i }}
+                                    @if ($isMarked)
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-0.5"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    @endif
+                                </a>
+                            @endfor
+                        </div>
+
+                        <!-- Marking Controls -->
+                        {{-- <div class="mt-5 pt-5 border-t border-gray-100">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Tandai soal untuk ditinjau ulang</span>
+                            <button id="toggleMarkButton" class="flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                Tandai Soal Ini
+                            </button>
+                        </div>
+                    </div> --}}
+                    </div>
+
+                    <!-- Exam Summary -->
+                    <div class="bg-gray-50 px-5 py-4 border-t border-gray-200">
+                        <div class="grid grid-cols-3 gap-3 text-center">
+                            <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                                <div class="text-sm text-gray-500">Total Soal</div>
+                                <div class="text-lg font-bold text-gray-800">{{ $totalQuestions }}</div>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                                <div class="text-sm text-gray-500">Terjawab</div>
+                                <div class="text-lg font-bold text-green-600">{{ $answeredQuestions }}</div>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                                <div class="text-sm text-gray-500">Belum</div>
+                                <div class="text-lg font-bold text-red-600">{{ $totalQuestions - $answeredQuestions }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                    <div class="bg-gradient-to-r from-green-400 to-green-600 h-3 rounded-full transition-all duration-500"
-                         style="width: {{ ($answeredQuestions / $totalQuestions) * 100 }}%"></div>
+
+                <!-- Quick Help -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 mt-5">
+                    <div class="bg-gray-50 px-5 py-3 border-b border-gray-200">
+                        <h3 class="text-sm font-semibold text-gray-800">Bantuan Cepat</h3>
+                    </div>
+                    <div class="p-4">
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>Klik nomor soal untuk berpindah</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>Gunakan tombol keyboard ← → untuk navigasi</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-4 w-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>Klik gambar soal untuk memperbesar</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-
-        @if ($questions->count() > 0)
-            @php
-                $question = $questions->first();
-                $userAnswer = $exam->questions()->where('questions.id', $question->id)->first()->pivot->user_answer ?? null;
-            @endphp
-
-            <!-- Question Card -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-6 border border-gray-100">
-                <!-- Question Header -->
-                <div class="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 px-6 py-4">
-                    <h3 class="text-lg font-bold text-white flex items-center">
-                        <span class="bg-white text-blue-700 rounded-full h-10 w-10 flex items-center justify-center mr-3 font-bold shadow-sm">
-                            {{ $questions->currentPage() }}
-                        </span>
-                        Pertanyaan
-                    </h3>
-                </div>
-                
-                <!-- Question Content -->
-                <div class="p-6">
-                    <div class="prose prose-lg max-w-none mb-6">
-                        <p class="text-gray-800 text-lg leading-relaxed">{!! $question->question_text !!}</p>
-                    </div>
-
-                    @if ($question->image)
-                        <div class="mb-6 flex justify-center">
-                            <div class="relative group">
-                                <img src="{{ asset('/storage/' . $question->image) }}" alt="Gambar Soal" 
-                                    class="max-w-full h-auto rounded-lg shadow-lg border border-gray-200 transition-transform duration-300 group-hover:scale-105">
-                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-lg transition-all duration-300"></div>
-                            </div>
-                        </div>
-                    @endif
-
-                    <!-- Watermark -->
-                    <div class="relative">
-                        <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-                            <div class="text-gray-800 font-bold text-6xl transform select-none flex justify-center flex-col items-center">
-                                <img src="{{ asset('./images/HRP.jpg') }}" alt="">
-                                SIMULASI UJIAN
-                            </div>
-                        </div>
-
-                        <form action="{{ route('exams.answer', $exam) }}" method="POST" id="answerForm">
-                            @csrf
-                            <input type="hidden" name="question_id" value="{{ $question->id }}">
-
-                            <div class="space-y-4 mb-8">
-                                @php
-                                    $options = [
-                                        'a' => $question->option_a,
-                                        'b' => $question->option_b,
-                                        'c' => $question->option_c,
-                                        'd' => $question->option_d,
-                                        'e' => $question->option_e,
-                                    ];
-                                @endphp
-
-                                @foreach ($options as $key => $option)
-                                    <div class="relative">
-                                        <input type="radio" name="user_answer" id="answer_{{ $key }}" value="{{ $key }}"
-                                            {{ $userAnswer == $key ? 'checked' : '' }} class="hidden peer">
-                                        <label for="answer_{{ $key }}" 
-                                            class="block w-full p-5 border-2 rounded-xl cursor-pointer transition-all duration-200 transform
-                                            {{ $userAnswer == $key ? 'bg-blue-50 border-blue-500 scale-105 shadow-md' : '' }}
-                                            peer-checked:bg-blue-50 peer-checked:border-blue-500 peer-checked:shadow-md ">
-                                            <div class="flex items-center">
-                                                <div class="h-8 w-8 rounded-full border-2 flex items-center justify-center mr-4 font-bold transition-all duration-200
-                                                    {{ $userAnswer == $key ? 'bg-blue-500 text-white border-blue-500' : 'bg-gray-100 text-gray-600 border-gray-300' }}">
-                                                    {{ strtoupper($key) }}
-                                                </div>
-                                                <span class="text-gray-700 text-lg flex-1">{{ $option }}</span>
-                                                @if ($userAnswer == $key)
-                                                    <div class="ml-4">
-                                                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                                        </svg>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </label>
-                                    </div>
-                                @endforeach
-                            </div>
-
-                            <div class="flex flex-col sm:flex-row justify-between gap-4">
-                                @if ($questions->currentPage() > 1)
-                                    <a href="{{ $questions->previousPageUrl() }}"
-                                        class="flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-sm hover:shadow-md">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                        </svg>
-                                        Soal Sebelumnya
-                                    </a>
-                                @else
-                                    <div></div>
-                                @endif
-
-                                <div class="flex gap-3">
-                                    @if ($questions->currentPage() < $totalQuestions)
-                                        <input type="hidden" name="next_question" value="{{ $questions->currentPage() + 1 }}">
-                                        <button type="submit"
-                                            class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-sm hover:shadow-md">
-                                            Simpan & Lanjut
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                            </svg>
-                                        </button>
-                                    @else
-                                        <button type="submit"
-                                            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-sm hover:shadow-md">
-                                            Simpan Jawaban
-                                        </button>
-                                    @endif
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Question Navigation -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-                <div class="p-6">
-                    <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
-                        <h3 class="text-lg font-bold text-gray-800 mb-3 sm:mb-0">Navigasi Soal</h3>
-                        
-                        @if ($answeredQuestions > 0)
-                            <form action="{{ route('exams.finish', $exam) }}" method="POST"
-                                onsubmit="return confirm('Apakah Anda yakin ingin menyelesaikan ujian ini? Pastikan semua jawaban telah disimpan.')"
-                                class="inline-block">
-                                @csrf
-                                <button type="submit"
-                                    class="flex items-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-sm hover:shadow-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    Selesaikan Ujian
-                                </button>
-                            </form>
-                        @endif
-                    </div>
-
-                    <!-- Legend -->
-                    <div class="flex flex-wrap gap-4 mb-4 text-sm">
-                        <div class="flex items-center gap-2">
-                            <div class="w-6 h-6 bg-blue-600 rounded-lg"></div>
-                            <span class="text-gray-600">Soal Aktif</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-6 h-6 bg-green-500 rounded-lg"></div>
-                            <span class="text-gray-600">Sudah Dijawab</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-6 h-6 bg-gray-100 border-2 border-gray-300 rounded-lg"></div>
-                            <span class="text-gray-600">Belum Dijawab</span>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-3">
-                        @for ($i = 1; $i <= $totalQuestions; $i++)
-                            @php
-                                $pageQuestion = $exam->questions()->skip($i - 1)->first();
-                                $hasAnswer = $pageQuestion ? $pageQuestion->pivot->user_answer : null;
-                                
-                                if ($questions->currentPage() == $i) {
-                                    $buttonClass = 'bg-blue-600 text-white ring-4 ring-blue-200 scale-110 shadow-lg';
-                                } elseif ($hasAnswer) {
-                                    $buttonClass = 'bg-green-500 hover:bg-green-600 text-white shadow-md hover:shadow-lg';
-                                } else {
-                                    $buttonClass = 'bg-gray-100 hover:bg-gray-200 text-gray-700 border-2 border-gray-300 hover:border-gray-400';
-                                }
-                            @endphp
-                            <a href="{{ route('exams.show', ['exam' => $exam, 'page' => $i]) }}"
-                                class="{{ $buttonClass }} font-bold h-12 w-12 flex items-center justify-center rounded-lg transition-all duration-200 transform hover:scale-105"
-                                title="Soal {{ $i }}{{ $hasAnswer ? ' (Sudah dijawab)' : ' (Belum dijawab)' }}">
-                                {{ $i }}
-                            </a>
-                        @endfor
-                    </div>
-                </div>
-                
-                <!-- Copyright Footer -->
-                <div class="bg-gradient-to-r from-gray-50 to-blue-50 px-6 py-4 border-t border-gray-100">
-                    <div class="text-center text-gray-500 text-sm">
-                        © {{ date('Y') }} Sistem Ujian Sertifikasi. Hak Cipta Dilindungi.
-                        <br>
-                        <span class="text-xs text-gray-400 mt-1 inline-block">
-                            Powered by WebDev_HAFECS - Developed with ❤️
-                        </span>
-                    </div>
-                </div>
-            </div>
-        @else
-            <!-- No Questions Available -->
-            <div class="bg-white rounded-xl shadow-lg p-8 text-center border border-gray-100">
-                <div class="max-w-md mx-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mx-auto text-gray-400 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Tidak ada soal tersedia</h3>
-                    <p class="text-gray-600 mb-8 leading-relaxed">Tidak ada soal tersedia untuk ujian ini. Silakan hubungi administrator atau coba lagi nanti.</p>
-                    <a href="{{ route('exams.index') }}"
-                        class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-sm hover:shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                        </svg>
-                        Kembali ke Daftar Ujian
-                    </a>
-                </div>
-            </div>
-        @endif
     </div>
-</div>
 
-@push('scripts')
-<script>
-    // Auto-save functionality (optional enhancement)
-    document.addEventListener('DOMContentLoaded', function() {
-        const radioButtons = document.querySelectorAll('input[name="user_answer"]');
-        const form = document.getElementById('answerForm');
-        let saveTimeout;
+    @push('scripts')
+        <script>
+            // Timer functionality
+            function startTimer(duration, display) {
+                let timer = duration,
+                    minutes, seconds;
+                const interval = setInterval(function() {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
 
-        radioButtons.forEach(radio => {
-            radio.addEventListener('change', function() {
-                // Clear existing timeout
-                if (saveTimeout) {
-                    clearTimeout(saveTimeout);
-                }
-                
-                // Set new timeout for auto-save (3 seconds after selection)
-                saveTimeout = setTimeout(() => {
-                    // You can implement auto-save here if needed
-                    console.log('Auto-save triggered for answer:', this.value);
-                }, 3000);
-            });
-        });
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        // Add loading state to submit buttons
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                const submitButton = form.querySelector('button[type="submit"]');
-                if (submitButton) {
-                    submitButton.disabled = true;
-                    submitButton.innerHTML = submitButton.innerHTML.replace(/Simpan/g, 'Menyimpan...');
-                }
-            });
-        }
-    });
+                    display.textContent = minutes + ":" + seconds;
 
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowRight') {
-            const nextBtn = document.querySelector('button[type="submit"]');
-            if (nextBtn && !nextBtn.disabled) {
-                nextBtn.click();
+                    if (--timer < 0) {
+                        clearInterval(interval);
+                        // Auto submit when time is up
+                        document.querySelector('form[action="{{ route('exams.finish', $exam) }}"]').submit();
+                    }
+                }, 1000);
             }
-        } else if (e.key === 'ArrowLeft') {
-            const prevBtn = document.querySelector('a[href*="page="]');
-            if (prevBtn) {
-                window.location.href = prevBtn.href;
+
+            window.onload = function() {
+                const examDuration = {{ $exam->duration ?? 60 }} * 60; // Convert minutes to seconds
+                const display = document.querySelector('#examTimer');
+                startTimer(examDuration, display);
+            };
+
+            // Mark question functionality
+            document.getElementById('toggleMarkButton').addEventListener('click', function() {
+                // Implement AJAX call to mark/unmark the current question
+                console.log('Marking question {{ $questions->currentPage() }}');
+                // You would typically make an AJAX call here to update the server
+                this.classList.toggle('text-yellow-600');
+
+                // Toggle star icon
+                const icon = this.querySelector('svg');
+                icon.classList.toggle('fill-yellow-400');
+                icon.classList.toggle('text-yellow-600');
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' && {{ $questions->currentPage() }} < {{ $totalQuestions }}) {
+                    document.getElementById('answerForm').submit();
+                } else if (e.key === 'ArrowLeft' && {{ $questions->currentPage() }} > 1) {
+                    window.location.href = "{{ $questions->previousPageUrl() }}";
+                } else if (e.key >= 1 && e.key <= 9 && e.key <= {{ $totalQuestions }}) {
+                    // Jump to question number pressed (1-9)
+                    window.location.href = "{{ route('exams.show', ['exam' => $exam, 'page' => '']) }}/" + e.key;
+                }
+            });
+
+            // Auto-save on answer selection
+            document.querySelectorAll('input[name="user_answer"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    // You can implement auto-save here if desired
+                    // For now, we'll just update the UI
+                    const answerKey = this.value.toUpperCase();
+                    console.log('Selected answer:', answerKey);
+                });
+            });
+        </script>
+    @endpush
+
+    @push('styles')
+        <style>
+            /* Custom scrollbar for question navigation */
+            .custom-scrollbar::-webkit-scrollbar {
+                width: 6px;
+                height: 6px;
             }
-        }
-    });
-</script>
-@endpush
 
-@push('styles')
-<style>
-    /* Custom animations */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+            .custom-scrollbar::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
 
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-    }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+                background: #c1c1c1;
+                border-radius: 10px;
+            }
 
-    .animate-fadeIn {
-        animation: fadeIn 0.5s ease-out;
-    }
+            .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                background: #a8a8a8;
+            }
 
-    .animate-pulse-subtle {
-        animation: pulse 2s infinite;
-    }
+            /* Smooth transitions */
+            [type="radio"]:checked+label {
+                transform: none;
+                /* Disable scale effect on checked */
+            }
 
-    /* Custom scrollbar */
-    .custom-scrollbar::-webkit-scrollbar {
-        width: 8px;
-    }
+            /* Responsive adjustments */
+            @media (max-width: 1023px) {
 
-    .custom-scrollbar::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
-
-    /* Smooth transitions for all interactive elements */
-    * {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-</style>
-@endpush
+                .lg\:w-7\/12,
+                .lg\:w-5\/12 {
+                    width: 100%;
+                }
+            }
+        </style>
+    @endpush
 @endsection

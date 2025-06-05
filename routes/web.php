@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\userController;
 use App\Models\Province;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -37,6 +38,14 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/admin/dashboard/logout', [AuthController::class, 'logout'])->name('logout');
 
+    //User student
+    Route::get('/admin/users/index', [userController::class, 'index'])->name('admin.users.index');
+    Route::get('/admin/users/{id}/show', [userController::class, 'show'])->name('admin.users.show');
+    Route::get('/admin/users/{id}/edit', [userController::class, 'edit'])->name('admin.users.edit');
+    Route::get('/admin/users/create', [userController::class, 'create'])->name('admin.users.create');
+    Route::post('/admin/users/store', [userController::class, 'store'])->name('admin.users.store');
+    Route::delete('/admin/users/{id}/delete', [userController::class, 'delete'])->name('admin.users.delete');
+
     // JENJANG SD
     Route::get('/admin/dashboard/jenjang/sd/index', [JenjangController::class, 'indexJenjangSD'])->name('admin.dashboard.jenjang.sd.index');
     Route::get('/admin/dashboard/jenjang/sd/create', [JenjangController::class, 'createJenjangSD'])->name('admin.dashboard.jenjang.sd.create');
@@ -62,13 +71,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard/jenjang/sma/{id}/show', [JenjangController::class, 'showJenjangSMA'])->name('admin.dashboard.jenjang.sma.show');
     Route::post('/admin/dashboard/jenjang/sma/store', [JenjangController::class, 'storeJenjangSMA'])->name('admin.dashboard.jenjang.sma.store');
     Route::delete('/admin/dashboard/jenjang/sma/{id}/delete', [JenjangController::class, 'deleteJenjangSMA'])->name('admin.dashboard.jenjang.sma.delete');
-    
+
     Route::post('/admin/dashboard/jenjang/sd/import', [ImportSoalSDController::class, 'import'])->name('admin.dashboard.jenjang.sd.import');
 
     Route::get('/students/index', [StudentController::class, 'index'])->name('students.jenjang.index');
     Route::get('/students/history/index', [StudentController::class, 'historyTest'])->name('students.jenjang.history.index');
 
-     Route::prefix('exams')->name('exams.')->group(function () {
+    Route::prefix('exams')->name('exams.')->group(function () {
         Route::get('/', [ExamController::class, 'index'])->name('index');
         Route::post('/start', [ExamController::class, 'start'])->name('start');
         Route::get('/{exam}/continue', [ExamController::class, 'continue'])->name('continue');
@@ -77,12 +86,22 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/{exam}/finish', [ExamController::class, 'finish'])->name('finish');
         Route::get('/{exam}/result', [ExamController::class, 'result'])->name('result');
         // Route::get('/instruction', [ExamController::class, 'instruction'])->name('instruction');
+        // Route::get('/instruction', [ExamController::class, 'instruction'])->name('instruction');
     });
+
+    // Profile student
+    Route::get('/students/profile/{id}/index', [StudentController::class, 'indexProfile'])->name('students.profile.index');
+    Route::put('/students/profile/post', [StudentController::class, 'updateProfile'])->name('students.profile.update');
+
+
+    
 });
 
 Route::get('/regencies/{provinceId}', [IndoRegionController::class, 'getRegencies']);
 Route::get('/districts/{regencyId}', [IndoRegionController::class, 'getDistricts']);
 Route::get('/villages/{districtId}', [IndoRegionController::class, 'getVillages']);
 
-        Route::get('/instruction', [ExamController::class, 'instruction'])->name('instruction');
+Route::get('/instruction/{id}', [ExamController::class, 'instruction'])->name('instruction');
+
+
 

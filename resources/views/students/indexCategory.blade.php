@@ -113,7 +113,7 @@
                                         Lanjutkan Ujian
                                     </a>
                                 @else
-                                    <form action="{{ route('exams.start') }}" method="POST" class="w-full">
+                                    {{-- <form action="{{ route('instruction') }}" method="GET" class="w-full">
                                         @csrf
                                         <input type="hidden" name="category_id" value="{{ $category->id }}">
                                         <button type="submit"
@@ -127,10 +127,22 @@
                                             </svg>
                                             Siap Mengikuti Simulasi
                                         </button>
-                                    </form>
+                                    </form> --}}
+
+                                    <a href="{{ route('instruction', $category->id) }}"
+                                        class="w-full flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 px-4 rounded-xl transition duration-300 shadow-md hover:shadow-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Siap Mengikuti Simulasi
+                                    </a>
                                 @endif
 
-                                @if ($completedExams > 0)
+                                {{-- @if ($completedExams > 0)
                                     <a href="#"
                                         class="text-center flex items-center justify-center text-gray-700 hover:text-blue-600 border-2 border-gray-200 hover:border-blue-400 font-medium py-3 px-4 rounded-xl transition duration-300 bg-white shadow-sm hover:shadow-md">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
@@ -140,7 +152,7 @@
                                         </svg>
                                         Lihat Hasil
                                     </a>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </div>

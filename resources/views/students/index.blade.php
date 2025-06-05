@@ -68,7 +68,7 @@
                                     </svg>
                                 </div>
                                 <p class="text-gray-600 mb-6">Perbarui informasi akun dan pengaturan profil Anda.</p>
-                                <a href="#"
+                                <a href="{{ route('students.profile.index', Auth::user()->id) }}"
                                     class="block w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2.5 px-4 rounded-lg text-center transition duration-300">
                                     Edit Profil
                                 </a>

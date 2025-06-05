@@ -14,10 +14,10 @@ class QuestionSeeders extends Seeder
     public function run(): void
     {
         for ($categoryId = 1; $categoryId <= 6; $categoryId++) {
-            for ($i = 1; $i <= 2; $i++) {
+            for ($i = 1; $i <= 30; $i++) {
                 Questions::create([
                     'category_id'    => $categoryId,
-                    'question_text'  => "Soal ke-$i untuk kategori $categoryId",
+                    'question_text'  => "Soal ke-$i untuk kategori $categoryId asdasdasdas asd asd aas das das dasdasdasdasdhasdjkhas dasjdh askjhdjkashduashdas dsakjdha sdjkhasjkdh askjdhoaudajshdk jasdkjashdjkas dhajsdhasidhashdkasjdh askjdhasjkdhasodhaskd haskjdhas daksjhd aksdhaskjdhaskjdhasd asdkasdjashda sd asd",
                     'image'          => null,
                     'option_a'       => 'Pilihan A',
                     'option_b'       => 'Pilihan B',

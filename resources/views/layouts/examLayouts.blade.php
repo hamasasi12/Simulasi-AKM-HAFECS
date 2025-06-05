@@ -13,6 +13,8 @@
     @stack('ckeditor')
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @livewireStyles
 </head>
 
 <body class="bg-gray-800">
@@ -29,6 +31,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     @stack('scripts')
     <script src="//unpkg.com/alpinejs" defer></script>
+    @livewireScripts
 </body>
 
 </html>

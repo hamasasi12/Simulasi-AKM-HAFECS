@@ -10,11 +10,12 @@
         "azishapidin/indoregion": "^3.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "livewire/livewire": "^3.4",
+        "livewire/livewire": "^3.6",
         "livewire/volt": "^1.7.0",
         "maatwebsite/excel": "^3.1",
         "realrashid/sweet-alert": "^7.3",
-        "spatie/laravel-permission": "^6.18"
+        "spatie/laravel-permission": "^6.18",
+        "vinkla/hashids": "^13.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",

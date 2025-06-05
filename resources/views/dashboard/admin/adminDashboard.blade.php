@@ -30,8 +30,7 @@
             </div>
             <div class="p-5">
                 <div class="flex items-center">
-                    <span class="text-3xl font-bold text-gray-800">#</span>
-
+                    <span class="text-3xl font-bold text-gray-800">{{ $SD }}</span>
                 </div>
             </div>
         </div>
@@ -48,7 +47,7 @@
             </div>
             <div class="p-5">
                 <div class="flex items-center">
-                    <span class="text-3xl font-bold text-gray-800">#</span>
+                    <span class="text-3xl font-bold text-gray-800">{{ $SMP }}</span>
 
                 </div>
             </div>
@@ -66,7 +65,7 @@
             </div>
             <div class="p-5">
                 <div class="flex items-center">
-                    <span class="text-3xl font-bold text-gray-800">#</span>
+                    <span class="text-3xl font-bold text-gray-800">{{ $SMA }}</span>
 
                 </div>
             </div>

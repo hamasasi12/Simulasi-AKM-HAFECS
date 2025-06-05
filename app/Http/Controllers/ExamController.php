@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Models\Exam;
+use Hashids\Hashids;
 use App\Models\Questions;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 class ExamController extends Controller
 {
@@ -162,7 +163,9 @@ class ExamController extends Controller
         ));
     }
 
-    public function instruction() {
-        return view('students.panduanUjian');
+    public function instruction(string $id) {
+        return view('students.panduanUjian', [
+            'category_id' => $id,
+        ]);
     }
 }
