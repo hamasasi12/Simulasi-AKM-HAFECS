@@ -9,11 +9,11 @@
         <nav class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mt-4 text-base">
             <!-- Breadcrumb -->
             <ol class="flex items-center space-x-1 text-indigo-600">
-                <li><a href="#" class="hover:underline">SD</a></li>
+                <li><a href="{{ route('admin.dashboard.jenjang.sd.index') }}" class="hover:underline">SD</a></li>
                 <li>/</li>
-                <li><a href="#" class="hover:underline">SMP</a></li>
+                <li><a href="{{ route('admin.dashboard.jenjang.smp.index') }}" class="hover:underline">SMP</a></li>
                 <li>/</li>
-                <li><a href="#" class="hover:underline">SMA</a></li>
+                <li><a href="{{ route('admin.dashboard.jenjang.sma.index') }}" class="hover:underline">SMA</a></li>
             </ol>
 
             <!-- Search & Info -->
@@ -34,10 +34,16 @@
                     <div>
                         <select id="jenjang" name="jenjang"
                             class="py-2 rounded-md border border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500">
-                            <option value="">All Jenjang</option>
-                            <option value="SD">SD</option>
-                            <option value="SMP">SMP</option>
-                            <option value="SMA">SMA</option>
+                            <option value="">Semua Kategori</option>
+                            <option value="SD" {{ request('jenjang') == 'SD' ? 'selected' : '' }}>
+                                SD
+                            </option>
+                            <option value="SMP" {{ request('jenjang') == 'SMP' ? 'selected' : '' }}>
+                                SMP
+                            </option>
+                            <option value="SMA" {{ request('jenjang') == 'SMA' ? 'selected' : '' }}>
+                                SMA
+                            </option>
                         </select>
                     </div>
                     <div>
@@ -45,10 +51,13 @@
                             class="py-2 rounded-md border border-gray-300 text-sm focus:ring-indigo-500 focus:border-indigo-500">
                             <option value="">All Kategori</option>
                             @forelse ($categories as $id => $name)
-                                <option value="{{ $id }}">{{ $name }}</option>
+                                <option value="{{ $id }}" {{ request('kategori') == $id ? 'selected' : '' }}>
+                                    {{ $name }}
+                                </option>
                             @empty
                                 <option value="">All Kategori</option>
                             @endforelse
+
                         </select>
                     </div>
                     <button class="px-3 py-1.5 bg-blue-600 text-white text-sm rounded">
@@ -99,6 +108,10 @@
                             </th>
                             <th scope="col"
                                 class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
+                                Jenjang Pendidikan
+                            </th>
+                            <th scope="col"
+                                class="px-4 py-3 text-xs font-medium text-left text-white uppercase tracking-wider">
                                 Category
                             </th>
                             <th scope="col"
@@ -132,6 +145,9 @@
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
                                 {{ $index->user->name }}
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
+                                {{ $index->user->jenjang_pendidikan }}
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
                                 {{ $index->category->name }}
@@ -225,18 +241,3 @@
         }
     </script>
 @endsection
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <header></header>
-    <main></main>
-    footer
-</body>
-</html>

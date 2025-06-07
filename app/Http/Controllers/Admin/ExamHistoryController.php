@@ -24,7 +24,7 @@ class ExamHistoryController extends Controller
             })
             ->when($request->jenjang, function ($query) use ($request) {
                 $query->whereHas('user', function ($q) use ($request) {
-                    $q->where('jenjang', $request->jenjang);
+                    $q->where('jenjang_pendidikan', $request->jenjang);
                 });
             })
             ->when($request->category, function ($query) use ($request) {
