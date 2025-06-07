@@ -31,11 +31,12 @@ class userController extends Controller
         if ($request->filled('jenjang')) {
             $query->where('jenjang_pendidikan', $request->jenjang);
         }
-        $users = $query->get();
+        $users = $query->paginate(10);
 
         return view('admin.users.index', [
             'navTitle' => 'User Management',
             'users' => $users,
+            'userCount' => $users->total(),
         ]);
     }
 
@@ -62,14 +63,39 @@ class userController extends Controller
 
             $students->assignRole($validatedData['jenjang_pendidikan']);
 
-            DB::commit(); 
+            DB::commit();
             Alert::success('Student account created successfully.')->flash();
             return redirect()->route('admin.users.index')->with('success', 'User  created successfully.');
         } catch (\Exception $e) {
-            DB::rollBack(); 
+            DB::rollBack();
             Log::error('Error creating student account: ' . $e->getMessage());
             Alert::error('Failed to create user: ' . $e->getMessage())->flash();
             return redirect()->route('admin.users.index')->with('error', 'Failed to create user. Please try again.');
+        }
+    }
+
+    public function update(StudentRequest $request, string $id)
+    {
+        DB::beginTransaction();
+        try {
+            $validatedData = $request->validated();
+            $user = User::findOrFail($id);
+
+            if ($request->has('password')) {
+                $validatedData['password'] = bcrypt($request->password);
+            } else {
+                unset($validatedData['password']);
+            }
+
+            $user->update($validatedData);
+            DB::commit();
+            Alert::success('User updated successfully.')->flash();
+            return redirect()->route('admin.users.index')->with('success', 'User updated successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Error updating user: ' . $e->getMessage());
+            Alert::error('Failed to update user: ' . $e->getMessage())->flash();
+            return redirect()->back()->withErrors(['error' => 'Failed to update user: ' . $e->getMessage()]);
         }
     }
 
@@ -79,6 +105,17 @@ class userController extends Controller
         return view('admin.users.show', [
             'user' => $user,
             'navTitle' => 'User Detail',
+        ]);
+    }
+
+    public function edit(string $id)
+    {
+        $user = User::findOrFail($id);
+        $provinces = Province::all();
+        return view('admin.users.edit', [
+            'user' => $user,
+            'provinces' => $provinces,
+            'navTitle' => 'Edit User',
         ]);
     }
 

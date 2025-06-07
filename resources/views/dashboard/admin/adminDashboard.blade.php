@@ -75,18 +75,179 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         <!-- Activity Chart -->
         <div class="bg-white rounded-xl shadow-md p-6 lg:col-span-2">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-bold text-gray-800">Aktivitas Pengguna</h3>
-                <div class="flex space-x-2">
-                    <button class="px-3 py-1 bg-blue-100 text-blue-600 rounded-lg text-sm font-medium">Minggu Ini</button>
-                    <button class="px-3 py-1 bg-gray-100 text-gray-600 rounded-lg text-sm font-medium">Bulan Ini</button>
+    <div class="flex justify-between items-center mb-4">
+        <h3 class="text-lg font-bold text-gray-800">Riwayat Pengguna</h3>
+        <div class="flex space-x-2">
+            <button class="px-3 py-1 bg-blue-100 text-blue-600 rounded-lg text-sm font-medium">Terbaru</button>
+            <button class="px-3 py-1 bg-gray-100 text-gray-600 rounded-lg text-sm font-medium">Semua</button>
+        </div>
+    </div>
+    
+    <div class="overflow-x-auto">
+        @if($users->count() > 0)
+            <table class="w-full table-auto">
+                <thead>
+                    <tr class="bg-gray-50 border-b">
+                        <th class="text-left px-4 py-3 text-sm font-semibold text-gray-600">No</th>
+                        <th class="text-left px-4 py-3 text-sm font-semibold text-gray-600">Nama</th>
+                        <th class="text-left px-4 py-3 text-sm font-semibold text-gray-600">Email</th>
+                        <th class="text-left px-4 py-3 text-sm font-semibold text-gray-600">Kelas</th>
+                        <th class="text-left px-4 py-3 text-sm font-semibold text-gray-600">Sekolah</th>
+                        <th class="text-left px-4 py-3 text-sm font-semibold text-gray-600">Jenjang</th>
+                        <th class="text-left px-4 py-3 text-sm font-semibold text-gray-600">Lokasi</th>
+                        <th class="text-left px-4 py-3 text-sm font-semibold text-gray-600">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($users as $index => $user)
+                        <tr class="border-b hover:bg-gray-50 transition-colors">
+                            <td class="px-4 py-3 text-sm text-gray-600">{{ $index + 1 }}</td>
+                            <td class="px-4 py-3">
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-medium text-gray-800">{{ $user->name }}</span>
+                                    <span class="text-xs text-gray-500">{{ $user->nama_siswa ?? 'N/A' }}</span>
+                                </div>
+                            </td>
+                            <td class="px-4 py-3 text-sm text-gray-600">{{ $user->email }}</td>
+                            <td class="px-4 py-3">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">
+                                    {{ $user->kelas ?? 'N/A' }}
+                                </span>
+                            </td>
+                            <td class="px-4 py-3 text-sm text-gray-600">{{ $user->asal_sekolah ?? 'N/A' }}</td>
+                            <td class="px-4 py-3">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
+                                    {{ $user->jenjang_pendidikan ?? 'N/A' }}
+                                </span>
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="text-xs text-gray-600">
+                                    <div>{{ $user->kabupaten ?? 'N/A' }}, {{ $user->provinsi ?? 'N/A' }}</div>
+                                    <div class="text-gray-400">{{ $user->kecamatan ?? 'N/A' }}, {{ $user->kelurahan ?? 'N/A' }}</div>
+                                </div>
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-800 text-sm">Detail</button>
+                                    <button class="text-red-600 hover:text-red-800 text-sm">Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            
+            <!-- Pagination -->
+            <div class="mt-4 flex justify-center">
+                {{ $users->links() }}
+            </div>
+        @else
+            <div class="h-64 w-full bg-gray-50 rounded-lg flex items-center justify-center">
+                <div class="text-center">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-2.239" />
+                    </svg>
+                    <h3 class="mt-2 text-sm font-medium text-gray-900">Tidak ada data pengguna</h3>
+                    <p class="mt-1 text-sm text-gray-500">Belum ada pengguna yang terdaftar dalam sistem.</p>
                 </div>
             </div>
-            <div class="h-64 w-full bg-gray-50 rounded-lg flex items-center justify-center">
-                <!-- Placeholder for chart -->
-                <p class="text-gray-400">Grafik aktivitas pengguna akan ditampilkan di sini</p>
+        @endif
+    </div>
+</div>
+
+<!-- Modal Detail User (Optional) -->
+<div id="userDetailModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+    <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+        <div class="mt-3">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-gray-900">Detail Pengguna</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modalContent" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Content will be populated by JavaScript -->
             </div>
         </div>
+    </div>
+</div>
+
+<script>
+function showUserDetail(user) {
+    const modal = document.getElementById('userDetailModal');
+    const content = document.getElementById('modalContent');
+    
+    content.innerHTML = `
+        <div class="space-y-3">
+            <div>
+                <label class="text-sm font-medium text-gray-500">Nama Lengkap</label>
+                <p class="text-gray-900">${user.name || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Nama Siswa</label>
+                <p class="text-gray-900">${user.nama_siswa || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Email</label>
+                <p class="text-gray-900">${user.email || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Kelas</label>
+                <p class="text-gray-900">${user.kelas || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Asal Sekolah</label>
+                <p class="text-gray-900">${user.asal_sekolah || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Jenjang Pendidikan</label>
+                <p class="text-gray-900">${user.jenjang_pendidikan || 'N/A'}</p>
+            </div>
+        </div>
+        <div class="space-y-3">
+            <div>
+                <label class="text-sm font-medium text-gray-500">Jenis Kelamin</label>
+                <p class="text-gray-900">${user.jenis_kelamin || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Provinsi</label>
+                <p class="text-gray-900">${user.provinsi || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Kabupaten</label>
+                <p class="text-gray-900">${user.kabupaten || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Kecamatan</label>
+                <p class="text-gray-900">${user.kecamatan || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Kelurahan</label>
+                <p class="text-gray-900">${user.kelurahan || 'N/A'}</p>
+            </div>
+            <div>
+                <label class="text-sm font-medium text-gray-500">Token</label>
+                <p class="text-gray-900 text-xs font-mono bg-gray-100 p-2 rounded">${user.token || 'N/A'}</p>
+            </div>
+        </div>
+    `;
+    
+    modal.classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('userDetailModal').classList.add('hidden');
+}
+
+// Close modal when clicking outside
+document.getElementById('userDetailModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+</script>
 
         <!-- Recent Activities -->
         <div class="bg-white rounded-xl shadow-md p-6">
@@ -134,65 +295,5 @@
     </div>
 
     <!-- Statistik Sertifikasi dan Tabel Pengguna Terbaru -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <!-- Statistik Sertifikasi -->
-        <div class="bg-white rounded-xl shadow-md p-6">
-            <h3 class="text-lg font-bold text-gray-800 mb-4">Status Sertifikasi</h3>
-            <div class="space-y-4">
-                <!-- Sertifikasi Selesai -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-sm font-medium text-gray-700">Selesai</span>
-                        <span class="text-sm font-medium text-gray-700">65%</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5">
-                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 65%"></div>
-                    </div>
-                </div>
-
-                <!-- Sertifikasi Dalam Proses -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-sm font-medium text-gray-700">Dalam Proses</span>
-                        <span class="text-sm font-medium text-gray-700">25%</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5">
-                        <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 25%"></div>
-                    </div>
-                </div>
-
-                <!-- Sertifikasi Belum Dimulai -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-sm font-medium text-gray-700">Belum Dimulai</span>
-                        <span class="text-sm font-medium text-gray-700">10%</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2.5">
-                        <div class="bg-gray-400 h-2.5 rounded-full" style="width: 10%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-gray-200">
-                <h4 class="text-sm font-semibold text-gray-800 mb-3">Distribusi Level</h4>
-                <div class="grid grid-cols-3 gap-2 text-center">
-                    <div class="bg-blue-50 p-2 rounded-lg">
-                        <span class="block text-xl font-bold text-blue-600">42%</span>
-                        <span class="text-xs text-gray-600">Level A</span>
-                    </div>
-                    <div class="bg-purple-50 p-2 rounded-lg">
-                        <span class="block text-xl font-bold text-purple-600">35%</span>
-                        <span class="text-xs text-gray-600">Level B</span>
-                    </div>
-                    <div class="bg-green-50 p-2 rounded-lg">
-                        <span class="block text-xl font-bold text-green-600">23%</span>
-                        <span class="text-xs text-gray-600">Level C</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tabel Pengguna Terbaru -->
-        {{-- @livewire('asesi-table') --}}
-    </div>
+  
 @endsection

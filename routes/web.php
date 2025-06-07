@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ExamHistoryController;
 use App\Http\Controllers\Admin\userController;
 use App\Models\Province;
 use Illuminate\Support\Facades\Route;
@@ -38,13 +39,21 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/admin/dashboard/logout', [AuthController::class, 'logout'])->name('logout');
 
-    //User student
+    //USER STUDENT
     Route::get('/admin/users/index', [userController::class, 'index'])->name('admin.users.index');
     Route::get('/admin/users/{id}/show', [userController::class, 'show'])->name('admin.users.show');
     Route::get('/admin/users/{id}/edit', [userController::class, 'edit'])->name('admin.users.edit');
+    Route::put('/admin/users/{id}/update', [userController::class, 'update'])->name('admin.users.update');
     Route::get('/admin/users/create', [userController::class, 'create'])->name('admin.users.create');
     Route::post('/admin/users/store', [userController::class, 'store'])->name('admin.users.store');
     Route::delete('/admin/users/{id}/delete', [userController::class, 'delete'])->name('admin.users.delete');
+
+    // EXAM HISTORY
+    Route::get('/admin/exam/index', [ExamHistoryController::class, 'index'])->name('admin.exam.index');
+    Route::get('/admin/exam/create', [ExamHistoryController::class, 'create'])->name('admin.exam.create');
+    Route::get('/admin/exam/{id}/edit', [ExamHistoryController::class, 'edit'])->name('admin.exam.edit');
+    Route::get('/admin/exam/{id}/show', [ExamHistoryController::class, 'show'])->name('admin.exam.show');
+    Route::post('/admin/exam/store', [ExamHistoryController::class, 'store'])->name('admin.exam.store');
 
     // JENJANG SD
     Route::get('/admin/dashboard/jenjang/sd/index', [JenjangController::class, 'indexJenjangSD'])->name('admin.dashboard.jenjang.sd.index');

@@ -12,11 +12,13 @@ class DashboardController extends Controller
         $SD = User::role('SD')->count();
         $SMP = User::role('SMP')->count();
         $SMA = User::role('SMA')->count();
+        $users = User::paginate(5);
         return view('dashboard.admin.adminDashboard', [
             'navTitle' => 'Admin Dashboard'
             , 'SD' => $SD,
             'SMP' => $SMP,
             'SMA' => $SMA,
+            'users' => $users,
         ] );
     }
 }

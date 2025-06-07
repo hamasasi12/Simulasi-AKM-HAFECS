@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             RolePermissionSeeders::class,
             QuestionSeeders::class,
             StudentSeeders::class,
+            ExamSeeders::class,
         ]);
 
         User::factory()->create([

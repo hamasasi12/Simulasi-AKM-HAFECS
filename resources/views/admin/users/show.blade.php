@@ -11,7 +11,7 @@
             </a>
             <h1 class="text-xl font-bold text-white sm:text-2xl">Detail Pengguna</h1>
             <div class="flex space-x-2">
-                <a href=""
+                <a href="{{ route('admin.users.edit', $user->id) }}"
                     class="inline-flex items-center px-4 py-2 rounded-lg bg-yellow-500 text-white hover:bg-yellow-600 transition-colors duration-200 shadow">
                     <i class="mr-2 fa-solid fa-pen-to-square"></i> Edit
                 </a>

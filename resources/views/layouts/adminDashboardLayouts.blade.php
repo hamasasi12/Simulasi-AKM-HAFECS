@@ -234,6 +234,22 @@
                         </li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="{{ route('admin.exam.index') }}"
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
+                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 1 0 0-2H3a1 1 0 0 0-1 1v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a1 1 0 0 0-1-1z" />
+                            <path
+                                d="M7 8h10a1 1 0 1 0 0-2H7a1 1 0 1 0 0 2zm0 4h10a1 1 0 1 0 0-2H7a1 1 0 1 0 0 2zm0 4h6a1 1 0 1 0 0-2H7a1 1 0 1 0 0 2z" />
+                            <path d="M15 2H9a1 1 0 0 0-1 1v2h8V3a1 1 0 0 0-1-1z" />
+                        </svg>
+                        <span class="ms-3">Exam History</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </aside>

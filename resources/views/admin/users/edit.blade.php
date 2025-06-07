@@ -48,18 +48,6 @@
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
                                 </div>
-
-                                <!-- Email -->
-                                <div>
-                                    <label for="email" class="block font-medium text-gray-700 mb-2">Email <span class="text-red-500">*</span></label>
-                                    <input type="email" id="email" name="email" required
-                                        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition duration-200"
-                                        placeholder="Masukkan alamat email"
-                                        value="{{ old('email', $user->email) }}">
-                                    @error('email')
-                                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                    @enderror
-                                </div>
                             </div>
                         </div>
 
@@ -101,8 +89,6 @@
                                         <option value="SD" {{ old('jenjang_pendidikan', $user->jenjang_pendidikan) == 'SD' ? 'selected' : '' }}>SD</option>
                                         <option value="SMP" {{ old('jenjang_pendidikan', $user->jenjang_pendidikan) == 'SMP' ? 'selected' : '' }}>SMP</option>
                                         <option value="SMA" {{ old('jenjang_pendidikan', $user->jenjang_pendidikan) == 'SMA' ? 'selected' : '' }}>SMA</option>
-                                        <option value="SMK" {{ old('jenjang_pendidikan', $user->jenjang_pendidikan) == 'SMK' ? 'selected' : '' }}>SMK</option>
-                                        <option value="Perguruan Tinggi" {{ old('jenjang_pendidikan', $user->jenjang_pendidikan) == 'Perguruan Tinggi' ? 'selected' : '' }}>Perguruan Tinggi</option>
                                     </select>
                                     @error('jenjang_pendidikan')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>

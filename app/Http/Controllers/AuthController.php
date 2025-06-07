@@ -49,16 +49,18 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function loginStudents() {
+    public function loginStudents()
+    {
         return view('auth.studentLoginPage');
     }
 
-    public function loginStudentsProcess(Request $request) {
+    public function loginStudentsProcess(Request $request)
+    {
         $validated = $request->validate([
             'token' => 'required'
         ]);
         $user = User::where('token', $validated['token'])->first();
-        if(!$user) {
+        if (!$user) {
             Alert::error('error', 'user tidak ditemukan, token salah');
             return redirect()->back();
         }
@@ -66,9 +68,4 @@ class AuthController extends Controller
         Alert::success('success', 'Berhasil Login!');
         return redirect()->route('students.jenjang.index');
     }
-
-
-
-
-
 }
