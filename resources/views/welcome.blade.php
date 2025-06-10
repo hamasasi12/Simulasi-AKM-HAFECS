@@ -145,8 +145,7 @@
                 <div class="animate-fadeIn">
                     <h1 class="text-6xl font-extrabold leading-tight mt-2 transition-all duration-300">
                         <span
-                            class="text-blue-600 hover:text-blue-700 inline-block transform hover:scale-105 transition-all duration-300">Program
-                            Literasi</span>
+                            class="text-blue-600 hover:text-blue-700 inline-block transform hover:scale-105 transition-all duration-300">Program riset</span>
                         <span
                             class="text-amber-500 hover:text-amber-600 inline-block transform hover:scale-105 transition-all duration-300">dan</span><br>
                         <span
